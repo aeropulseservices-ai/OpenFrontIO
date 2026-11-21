@@ -94,6 +94,17 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   SAMs and enemy fighters can shoot the plane down, and the troops on board
   are lost with it.
 
+### Submarines
+
+- **Submarine**: 750k (+250k per submarine, max 1.5M), hotkey `Shift+0`,
+  800 health. Built from a port like a warship and moved the same way
+  (click it, then click water). It stays submerged: other players can't see
+  it, enemy warships don't hunt it, and radars don't report it. Every 3
+  seconds it fires a torpedo at the nearest hostile ship within 12 tiles:
+  500 damage to warships and carriers, and transport and trade ships are
+  sunk outright. It shows itself for 3 seconds each time it fires. Hostile
+  warships that get within 8 tiles find it on sonar and drop depth charges.
+
 ### Radar stations
 
 - **Radar Station**: 150k (doubling per station, max 600k), hotkey

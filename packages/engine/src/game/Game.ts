@@ -122,6 +122,10 @@ export interface UnitParamsMap {
     troops: number;
   };
 
+  [UnitType.Submarine]: {
+    patrolTile: TileRef;
+  };
+
   [UnitType.Fighter]: Record<string, never>;
 
   [UnitType.Bomber]: Record<string, never>;

@@ -223,6 +223,7 @@
       "radar": "Warns you when enemy ships or aircraft come near; sees through fog of war",
       "sam_launcher": "Defends against incoming nukes",
       "spy_plane": "Flies over a rival and reports their troops, gold and buildings",
+      "submarine": "Hidden warship: torpedoes enemy ships and is only seen when it fires",
       "warship": "Captures trade ships, destroys ships and boats"
     },
     "not_enough_money": "Not enough money",
@@ -3304,6 +3305,7 @@
     "radar": "Radar Station",
     "sam_launcher": "SAM Launcher",
     "spy_plane": "Spy Plane",
+    "submarine": "Submarine",
     "warship": "Warship"
   },
   "update_available": {
@@ -3380,6 +3382,7 @@
     "build_scroll_modifier": "Build Scroll Modifier",
     "build_scroll_modifier_desc": "Hold this key and scroll to change build amount.",
     "build_spy_plane": "Build Spy Plane",
+    "build_submarine": "Build Submarine",
     "build_warship": "Build Warship",
     "camera_movement": "Camera Movement",
     "center_camera": "Center Camera",

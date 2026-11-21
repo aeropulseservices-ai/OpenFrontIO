@@ -439,6 +439,10 @@
       "radius": 6,
       "intensity": 2.4
     },
+    "Submarine": {
+      "radius": 4,
+      "intensity": 1.0
+    },
     "Aircraft Carrier": {
       "radius": 10,
       "intensity": 2.8

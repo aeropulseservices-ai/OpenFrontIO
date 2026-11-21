@@ -344,6 +344,28 @@ export class EngineConfig extends Config {
   samBomberShootDownOdds(): number {
     return 12;
   }
+  // Mod: submarines.
+  submarineTorpedoRange(): number {
+    return 12;
+  }
+  submarineTorpedoDamage(): number {
+    return 500;
+  }
+  submarineReloadTicks(): number {
+    return 30;
+  }
+  /** Ticks a submarine stays visible to others after firing. */
+  submarineSurfacedTicks(): number {
+    return 30;
+  }
+  /** How close a hostile warship must be to find a submarine on sonar. */
+  submarineSonarRange(): number {
+    return 8;
+  }
+  /** Damage each nearby hostile warship deals a submarine per second. */
+  depthChargeDamage(): number {
+    return 60;
+  }
   paratrooperSpeed(): number {
     return 2;
   }
@@ -537,6 +559,12 @@ export class EngineConfig extends Config {
         return this.costWrapper(
           (numUnits: number) => Math.min(800_000, 400_000 + numUnits * 100_000),
           UnitType.Fighter,
+        );
+      case UnitType.Submarine:
+        return this.costWrapper(
+          (numUnits: number) =>
+            Math.min(1_500_000, 750_000 + numUnits * 250_000),
+          UnitType.Submarine,
         );
       case UnitType.Paratroopers:
         return this.costWrapper(

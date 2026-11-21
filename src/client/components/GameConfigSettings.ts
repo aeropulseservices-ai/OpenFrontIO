@@ -131,6 +131,7 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.Radar, translationKey: "unit_type.radar" },
   { type: UnitType.SpyPlane, translationKey: "unit_type.spy_plane" },
   { type: UnitType.Paratroopers, translationKey: "unit_type.paratroopers" },
+  { type: UnitType.Submarine, translationKey: "unit_type.submarine" },
 ];
 
 const MAP_ICON = svg`<path

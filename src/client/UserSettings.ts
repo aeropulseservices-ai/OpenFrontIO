@@ -48,6 +48,7 @@ export function getDefaultKeybinds(isMac: boolean): Record<string, string> {
     buildRadar: "Shift+Digit7",
     buildSpyPlane: "Shift+Digit8",
     buildParatroopers: "Shift+Digit9",
+    buildSubmarine: "Shift+Digit0",
     attackRatioDown: "KeyT",
     attackRatioUp: "KeyY",
     boatAttack: "KeyB",

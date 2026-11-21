@@ -28,6 +28,7 @@ export const UT_BOMBER = "Bomber" as const;
 export const UT_CARRIER = "Aircraft Carrier" as const;
 export const UT_SPY_PLANE = "Spy Plane" as const;
 export const UT_PARATROOPERS = "Paratroopers" as const;
+export const UT_SUBMARINE = "Submarine" as const;
 
 // Structures
 export const UT_CITY = "City" as const;
@@ -134,4 +135,5 @@ export const ALL_UNIT_TYPES = [
   UT_RADAR,
   UT_SPY_PLANE,
   UT_PARATROOPERS,
+  UT_SUBMARINE,
 ] as const;

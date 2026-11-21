@@ -43,6 +43,7 @@ import { ShellExecutionSnapshot } from "../execution/ShellExecution";
 import { SpawnExecutionSnapshot } from "../execution/SpawnExecution";
 import { SpawnTimerExecutionSnapshot } from "../execution/SpawnTimerExecution";
 import { SpyPlaneExecutionSnapshot } from "../execution/SpyPlaneExecution";
+import { SubmarineExecutionSnapshot } from "../execution/SubmarineExecution";
 import { TargetPlayerExecutionSnapshot } from "../execution/TargetPlayerExecution";
 import { TradeShipExecutionSnapshot } from "../execution/TradeShipExecution";
 import { TrainExecutionSnapshot } from "../execution/TrainExecution";
@@ -85,6 +86,7 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   RadarExecutionSnapshot,
   SpyPlaneExecutionSnapshot,
   ParatrooperExecutionSnapshot,
+  SubmarineExecutionSnapshot,
   FighterExecutionSnapshot,
   BomberExecutionSnapshot,
   CarrierExecutionSnapshot,
