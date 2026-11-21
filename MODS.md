@@ -74,6 +74,16 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   is. Click it to select it, then click water to move it, the same way you move
   warships. Enemy warships hunt carriers first, so keep yours escorted.
 
+### Spy planes
+
+- **Spy Plane**: 250k (+50k per spy plane, max 500k), hotkey `Shift+8`.
+  Click a rival's land within 350 tiles of one of your airports or carriers.
+  The plane flies there and sends you a report in the events feed: that
+  player's troops, gold, and how many cities, SAMs, missile silos and
+  airports they have. It then circles the spot for 30 seconds (and with fog
+  of war on, it sees 45 tiles around itself). Enemy fighters can shoot it
+  down, and so can SAMs, though less often than bombers.
+
 ### Radar stations
 
 - **Radar Station**: 150k (doubling per station, max 600k), hotkey

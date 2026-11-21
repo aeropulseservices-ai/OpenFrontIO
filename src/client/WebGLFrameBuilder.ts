@@ -127,6 +127,7 @@ const FOG_UNIT_SIGHT: ReadonlyMap<UnitType, number> = new Map([
   [UnitType.CargoPlane, 15],
   [UnitType.Fighter, 30],
   [UnitType.Bomber, 20],
+  [UnitType.SpyPlane, 45],
 ]);
 
 export class WebGLFrameBuilder {

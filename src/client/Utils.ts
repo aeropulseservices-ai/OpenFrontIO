@@ -751,6 +751,7 @@ export function getMessageTypeClasses(type: MessageType): string {
       return severityColors["warn"];
     case MessageType.CHAT:
     case MessageType.ALLIANCE_REQUEST:
+    case MessageType.SPY_REPORT:
       return severityColors["info"];
     default:
       console.warn(`Message type ${type} has no explicit color`);

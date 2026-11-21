@@ -344,6 +344,17 @@ export class EngineConfig extends Config {
   samBomberShootDownOdds(): number {
     return 12;
   }
+  spyPlaneSpeed(): number {
+    return 3;
+  }
+  /** Ticks a spy plane circles its target after reporting (30 seconds). */
+  spyPlaneLoiterTicks(): number {
+    return 300;
+  }
+  /** Like samBomberShootDownOdds, for spy planes (small and fast: harder). */
+  samSpyPlaneShootDownOdds(): number {
+    return 24;
+  }
   /** Share of a SAM's nuke range in which it can hit bombers. */
   samBomberRangePercent(): number {
     return 60;
@@ -523,6 +534,11 @@ export class EngineConfig extends Config {
         return this.costWrapper(
           (numUnits: number) => Math.min(800_000, 400_000 + numUnits * 100_000),
           UnitType.Fighter,
+        );
+      case UnitType.SpyPlane:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(500_000, 250_000 + numUnits * 50_000),
+          UnitType.SpyPlane,
         );
       case UnitType.Bomber:
         return this.costWrapper(
