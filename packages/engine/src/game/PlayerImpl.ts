@@ -1650,6 +1650,9 @@ export class PlayerImpl implements Player {
         return this.landBasedStructureSpawn(targetTile, validTiles);
       case UnitType.GoldMine:
         return this.goldMineSpawn(targetTile, validTiles);
+      case UnitType.Fighter:
+      case UnitType.Bomber:
+        return this.airStrikeSpawn(targetTile, unitType);
       case UnitType.CargoPlane:
         return this.landBasedUnitSpawn(targetTile);
       default:
@@ -1736,6 +1739,33 @@ export class PlayerImpl implements Player {
     );
 
     return bestPort?.tile() ?? false;
+  }
+
+  // Mod: fighters and bombers take off from the nearest finished airport in
+  // range of the target. Bombers may only target hostile players' land.
+  airStrikeSpawn(tile: TileRef, type: UnitType): TileRef | false {
+    if (this.mg.inSpawnPhase()) return false;
+    if (type === UnitType.Bomber) {
+      const owner = this.mg.owner(tile);
+      if (!owner.isPlayer() || owner === this || this.isFriendly(owner)) {
+        return false;
+      }
+    }
+    const range = this.mg.config().airStrikeRange();
+    const base = findClosestBy(
+      this.airBases(),
+      (b) => this.mg.manhattanDist(b.tile(), tile),
+      (b) =>
+        b.isActive() &&
+        !b.isUnderConstruction() &&
+        this.mg.manhattanDist(b.tile(), tile) <= range,
+    );
+    return base?.tile() ?? false;
+  }
+
+  /** Units aircraft can take off from. */
+  airBases(): Unit[] {
+    return this.units(UnitType.Airport);
   }
 
   // Mod: gold mines only go on highland or mountain tiles.

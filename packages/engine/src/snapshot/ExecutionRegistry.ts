@@ -6,6 +6,7 @@ import { AllianceRequestExecutionSnapshot } from "../execution/alliance/Alliance
 import { BreakAllianceExecutionSnapshot } from "../execution/alliance/BreakAllianceExecution";
 import { AttackExecutionSnapshot } from "../execution/AttackExecution";
 import { BoatRetreatExecutionSnapshot } from "../execution/BoatRetreatExecution";
+import { BomberExecutionSnapshot } from "../execution/BomberExecution";
 import { CargoPlaneExecutionSnapshot } from "../execution/CargoPlaneExecution";
 import { CityExecutionSnapshot } from "../execution/CityExecution";
 import { ConstructionExecutionSnapshot } from "../execution/ConstructionExecution";
@@ -18,6 +19,7 @@ import { EmbargoAllExecutionSnapshot } from "../execution/EmbargoAllExecution";
 import { EmbargoExecutionSnapshot } from "../execution/EmbargoExecution";
 import { EmojiExecutionSnapshot } from "../execution/EmojiExecution";
 import { FactoryExecutionSnapshot } from "../execution/FactoryExecution";
+import { FighterExecutionSnapshot } from "../execution/FighterExecution";
 import { MarkDisconnectedExecutionSnapshot } from "../execution/MarkDisconnectedExecution";
 import { MirvExecutionSnapshot } from "../execution/MIRVExecution";
 import { MissileSiloExecutionSnapshot } from "../execution/MissileSiloExecution";
@@ -76,6 +78,8 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   AirportExecutionSnapshot,
   CargoPlaneExecutionSnapshot,
   PassiveIncomeExecutionSnapshot,
+  FighterExecutionSnapshot,
+  BomberExecutionSnapshot,
   MarkDisconnectedExecutionSnapshot,
   MirvExecutionSnapshot,
   MissileSiloExecutionSnapshot,

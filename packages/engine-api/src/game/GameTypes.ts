@@ -226,6 +226,9 @@ export enum UnitType {
   // Mod: extra gold sources
   Bank = "Bank",
   GoldMine = "Gold Mine",
+  // Mod: air force
+  Fighter = "Fighter",
+  Bomber = "Bomber",
 }
 
 export enum TrainType {
@@ -246,6 +249,8 @@ export const BuildableAttacks = unitTypeGroup([
   UnitType.HydrogenBomb,
   UnitType.MIRV,
   UnitType.Warship,
+  UnitType.Fighter,
+  UnitType.Bomber,
 ] as const);
 
 export const Structures = unitTypeGroup([

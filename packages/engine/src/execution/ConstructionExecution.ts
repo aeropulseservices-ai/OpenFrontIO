@@ -15,9 +15,11 @@ import type {
   SnapshotWriter,
 } from "../snapshot/SnapshotContext";
 import { AirportExecution } from "./AirportExecution";
+import { BomberExecution } from "./BomberExecution";
 import { CityExecution } from "./CityExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
+import { FighterExecution } from "./FighterExecution";
 import { MirvExecution } from "./MIRVExecution";
 import { MissileSiloExecution } from "./MissileSiloExecution";
 import { NukeExecution } from "./NukeExecution";
@@ -174,6 +176,12 @@ export class ConstructionExecution implements Execution {
         this.mg.addExecution(
           new WarshipExecution({ owner: player, patrolTile: this.tile }),
         );
+        break;
+      case UnitType.Fighter:
+        this.mg.addExecution(new FighterExecution(player, this.tile));
+        break;
+      case UnitType.Bomber:
+        this.mg.addExecution(new BomberExecution(player, this.tile));
         break;
       case UnitType.Port:
       case UnitType.MissileSilo:

@@ -263,8 +263,17 @@ export class Config {
       case UnitType.MIRVWarhead:
       case UnitType.TradeShip:
       case UnitType.Train:
-      case UnitType.CargoPlane:
         info = {};
+        break;
+      // Mod: aircraft have health so fighters and SAMs can shoot them down.
+      case UnitType.CargoPlane:
+        info = { maxHealth: 100 };
+        break;
+      case UnitType.Fighter:
+        info = { maxHealth: 300 };
+        break;
+      case UnitType.Bomber:
+        info = { maxHealth: 400 };
         break;
       default:
         assertNever(type);

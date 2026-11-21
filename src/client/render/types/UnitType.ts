@@ -23,6 +23,8 @@ export const UT_MIRV_WARHEAD = "MIRV Warhead" as const;
 export const UT_TRAIN = "Train" as const;
 // Mod: aircraft
 export const UT_CARGO_PLANE = "Cargo Plane" as const;
+export const UT_FIGHTER = "Fighter" as const;
+export const UT_BOMBER = "Bomber" as const;
 
 // Structures
 export const UT_CITY = "City" as const;
@@ -69,7 +71,11 @@ export const SMOOTHED_NUKE_TYPES: ReadonlySet<string> = new Set([
 ]);
 
 /** Mod: aircraft. Rendered above structures, position smoothed per frame. */
-export const AIRCRAFT_TYPES: ReadonlySet<string> = new Set([UT_CARGO_PLANE]);
+export const AIRCRAFT_TYPES: ReadonlySet<string> = new Set([
+  UT_CARGO_PLANE,
+  UT_FIGHTER,
+  UT_BOMBER,
+]);
 
 /** Units that leave a trail on the map (TrailManager). */
 export const TRAIL_TYPES: ReadonlySet<string> = new Set([
@@ -115,4 +121,6 @@ export const ALL_UNIT_TYPES = [
   UT_CARGO_PLANE,
   UT_BANK,
   UT_GOLD_MINE,
+  UT_FIGHTER,
+  UT_BOMBER,
 ] as const;
