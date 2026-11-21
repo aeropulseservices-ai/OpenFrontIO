@@ -38,6 +38,7 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
 - AI nations build airports too (about one per three cities).
 
 ### More ways to earn gold
+
 - **City taxes** — every finished city level adds 10 gold per tick (100 per
   second) on top of the normal income.
 - **Bank** — land structure, upgradable. Every 10 seconds it pays 0.5% of the
@@ -47,6 +48,19 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   level every 10 seconds. Costs 150k, doubling per mine, capped at 1M.
   Hotkey: `Shift+3`.
 - AI nations build banks and gold mines too.
+
+### Air force
+- **Fighter** — 400k (+100k per fighter you have, max 800k), hotkey `Shift+4`.
+  Click any tile within 350 tiles of one of your airports: the fighter takes
+  off from the nearest airport, circles that spot and shoots down hostile
+  aircraft (enemy bombers, fighters and cargo planes) that come within 25
+  tiles. It stays up for 3 minutes, then returns to base.
+- **Bomber** — 600k (+150k per bomber, max 1.2M), hotkey `Shift+5`. Click an
+  enemy's land within 350 tiles of an airport: the bomber flies there, destroys
+  the nearest building within 8 tiles of the target and kills 5% of that
+  player's troops. Enemy SAM launchers can shoot it down when it flies inside
+  60% of their nuke range, and enemy fighters intercept it. You can't bomb
+  allies or teammates.
 
 ## Running it locally
 

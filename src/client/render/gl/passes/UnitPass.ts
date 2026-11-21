@@ -40,7 +40,9 @@ import {
   SMOOTHED_NUKE_TYPES,
   TrainType,
   UT_ATOM_BOMB,
+  UT_BOMBER,
   UT_CARGO_PLANE,
+  UT_FIGHTER,
   UT_HYDROGEN_BOMB,
   UT_MIRV,
   UT_MIRV_WARHEAD,
@@ -89,6 +91,8 @@ const UNIT_ORDER = [
   "TrainCarriageLoaded",
   // Mod: aircraft (appended after the trains, see the train range in unit.frag.glsl)
   UT_CARGO_PLANE,
+  UT_FIGHTER,
+  UT_BOMBER,
 ] as const;
 
 const ATLAS_COLS = UNIT_ORDER.length;
@@ -152,6 +156,8 @@ const MISSILE_TYPES: ReadonlySet<string> = new Set([
   UT_SHELL,
   UT_MIRV_WARHEAD,
   UT_CARGO_PLANE,
+  UT_FIGHTER,
+  UT_BOMBER,
 ]);
 
 /** Values per smoothing segment in the flat `smoothSegs` array:

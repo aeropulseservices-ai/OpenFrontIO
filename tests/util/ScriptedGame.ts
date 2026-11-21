@@ -469,6 +469,22 @@ function playIntent(game: Game, p: Player, rand: PseudoRandom): Intent | null {
   }
   const others = game.players().filter((o) => o !== p && o.isPlayer());
   const other = pick(rand, others);
+  // Mod: air force. Send a fighter or a bomber at a random enemy tile.
+  if (
+    p.units(UnitType.Airport).some((a) => !a.isUnderConstruction()) &&
+    other !== null &&
+    rand.chance(4)
+  ) {
+    const unit = rand.chance(2) ? UnitType.Bomber : UnitType.Fighter;
+    const tile = pick(rand, [...other.borderTiles()]);
+    if (
+      tile !== null &&
+      canAfford(game, p, unit) &&
+      p.canBuild(unit, tile) !== false
+    ) {
+      return { type: "build_unit", unit, tile };
+    }
+  }
   const own = (types: UnitType[]) => p.units(types);
 
   const readySilo = own([UnitType.MissileSilo]).some(

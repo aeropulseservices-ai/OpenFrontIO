@@ -302,6 +302,53 @@ export class EngineConfig extends Config {
     );
   }
 
+  // Mod: air force.
+
+  /** Max manhattan distance from an airport to a fighter or bomber target. */
+  airStrikeRange(): number {
+    return 350;
+  }
+  fighterSpeed(): number {
+    return 3;
+  }
+  bomberSpeed(): number {
+    return 2;
+  }
+  /** Ticks a fighter stays up before returning to base (3 minutes). */
+  fighterLifetime(): number {
+    return 1800;
+  }
+  /** How far a fighter looks for enemy aircraft. */
+  fighterDetectionRange(): number {
+    return 25;
+  }
+  /** How close a fighter must be to fire. */
+  fighterGunRange(): number {
+    return 4;
+  }
+  fighterDamage(): number {
+    return 150;
+  }
+  fighterFireCooldown(): number {
+    return 5;
+  }
+  /** Radius around the target a bomber searches for a structure to destroy. */
+  bomberBlastRadius(): number {
+    return 8;
+  }
+  /** Percent of the target owner's troops a bomb run kills. */
+  bomberTroopKillPercent(): number {
+    return 5;
+  }
+  /** Per tick, a bomber inside a hostile SAM's cover is shot down with probability 1/this. */
+  samBomberShootDownOdds(): number {
+    return 12;
+  }
+  /** Share of a SAM's nuke range in which it can hit bombers. */
+  samBomberRangePercent(): number {
+    return 60;
+  }
+
   // Mod: extra gold sources.
 
   /** Ticks between bank and gold mine payouts (10 seconds). */
@@ -466,6 +513,17 @@ export class EngineConfig extends Config {
         return this.costWrapper(
           (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 150_000),
           UnitType.GoldMine,
+        );
+      case UnitType.Fighter:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(800_000, 400_000 + numUnits * 100_000),
+          UnitType.Fighter,
+        );
+      case UnitType.Bomber:
+        return this.costWrapper(
+          (numUnits: number) =>
+            Math.min(1_200_000, 600_000 + numUnits * 150_000),
+          UnitType.Bomber,
         );
       case UnitType.TransportShip:
       case UnitType.Shell:

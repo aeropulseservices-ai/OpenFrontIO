@@ -1,6 +1,8 @@
 import { assetUrl } from "@openfront/shared/AssetUrls";
 
 export const airportIcon = assetUrl("images/AirportIconWhite.svg");
+export const fighterIcon = assetUrl("images/FighterIconWhite.svg");
+export const bomberIcon = assetUrl("images/BomberIconWhite.svg");
 export const bankIcon = assetUrl("images/BankIconWhite.svg");
 export const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 export const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");

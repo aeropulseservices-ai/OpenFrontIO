@@ -415,6 +415,14 @@
       "radius": 5,
       "intensity": 2.0
     },
+    "Fighter": {
+      "radius": 5,
+      "intensity": 2.2
+    },
+    "Bomber": {
+      "radius": 6,
+      "intensity": 2.4
+    },
     "Transport": {
       "radius": 6,
       "intensity": 2.7

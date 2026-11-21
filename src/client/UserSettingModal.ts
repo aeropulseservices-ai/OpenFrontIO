@@ -1541,6 +1541,26 @@ export class UserSettingModal extends BaseModal {
       ></setting-keybind>
 
       <setting-keybind
+        action="buildFighter"
+        label=${translateText("user_setting.build_fighter")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildFighter}
+        .value=${this.getKeyValue("buildFighter")}
+        .display=${this.getKeyChar("buildFighter")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
+        action="buildBomber"
+        label=${translateText("user_setting.build_bomber")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildBomber}
+        .value=${this.getKeyValue("buildBomber")}
+        .display=${this.getKeyChar("buildBomber")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
         action="buildScrollModifier"
         .allowModifiers=${true}
         label=${translateText("user_setting.build_scroll_modifier")}

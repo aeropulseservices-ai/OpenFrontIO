@@ -29,9 +29,11 @@ import {
   airportIcon,
   atomBombIcon,
   bankIcon,
+  bomberIcon,
   cityIcon,
   defensePostIcon,
   factoryIcon,
+  fighterIcon,
   goldCoinIcon,
   goldMineIcon,
   hydrogenBombIcon,
@@ -67,6 +69,8 @@ export class UnitDisplay extends LitElement implements Controller {
   private _airports = 0;
   private _banks = 0;
   private _goldMines = 0;
+  private _fighters = 0;
+  private _bombers = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -571,6 +575,12 @@ export class UnitDisplay extends LitElement implements Controller {
           this.cost(item) <= (player?.gold() ?? 0n) &&
           (player?.units(UnitType.Port).length ?? 0) > 0
         );
+      case UnitType.Fighter:
+      case UnitType.Bomber:
+        return (
+          this.cost(item) <= (player?.gold() ?? 0n) &&
+          (player?.units(UnitType.Airport).length ?? 0) > 0
+        );
       default:
         return this.cost(item) <= (player?.gold() ?? 0n);
     }
@@ -601,6 +611,8 @@ export class UnitDisplay extends LitElement implements Controller {
     this._airports = player.totalUnitLevels(UnitType.Airport);
     this._banks = player.totalUnitLevels(UnitType.Bank);
     this._goldMines = player.totalUnitLevels(UnitType.GoldMine);
+    this._fighters = player.units(UnitType.Fighter).length;
+    this._bombers = player.units(UnitType.Bomber).length;
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -735,6 +747,20 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.GoldMine,
               "gold_mine",
               this.getHotkey("buildGoldMine", "Shift+Digit3"),
+            )}
+            ${this.renderUnitItem(
+              fighterIcon,
+              this._fighters,
+              UnitType.Fighter,
+              "fighter",
+              this.getHotkey("buildFighter", "Shift+Digit4"),
+            )}
+            ${this.renderUnitItem(
+              bomberIcon,
+              this._bombers,
+              UnitType.Bomber,
+              "bomber",
+              this.getHotkey("buildBomber", "Shift+Digit5"),
             )}
           </div>
         </div>

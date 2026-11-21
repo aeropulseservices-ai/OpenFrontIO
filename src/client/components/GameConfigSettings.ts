@@ -122,6 +122,8 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.Airport, translationKey: "unit_type.airport" },
   { type: UnitType.Bank, translationKey: "unit_type.bank" },
   { type: UnitType.GoldMine, translationKey: "unit_type.gold_mine" },
+  { type: UnitType.Fighter, translationKey: "unit_type.fighter" },
+  { type: UnitType.Bomber, translationKey: "unit_type.bomber" },
 ];
 
 const MAP_ICON = svg`<path
