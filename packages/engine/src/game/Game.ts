@@ -127,6 +127,7 @@ export interface UnitParamsMap {
   };
 
   [UnitType.Barracks]: Record<string, never>;
+  [UnitType.CoastalBattery]: Record<string, never>;
 
   [UnitType.Fighter]: Record<string, never>;
 

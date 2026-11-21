@@ -253,6 +253,7 @@ export class Config {
       case UnitType.GoldMine:
       case UnitType.Radar:
       case UnitType.Barracks:
+      case UnitType.CoastalBattery:
         info = {
           constructionDuration: this.instantBuild() ? 0 : 5 * 10,
           upgradable: true,
@@ -428,6 +429,11 @@ export class Config {
    */
   barracksGrowthBonus(levels: number): number {
     return Math.min(100, levels * 10);
+  }
+
+  /** Mod: how far a coastal battery of this level can shoot, in tiles. */
+  coastalBatteryRange(level: number): number {
+    return 25 + 5 * (level - 1);
   }
 
   troopIncreaseRate(player: PlayerLike): number {

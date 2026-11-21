@@ -8,6 +8,9 @@ export const bankIcon = assetUrl("images/BankIconWhite.svg");
 export const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 export const radarIcon = assetUrl("images/RadarIconWhite.svg");
 export const barracksIcon = assetUrl("images/BarracksIconWhite.svg");
+export const coastalBatteryIcon = assetUrl(
+  "images/CoastalBatteryIconWhite.svg",
+);
 export const spyPlaneIcon = assetUrl("images/SpyPlaneIconWhite.svg");
 export const paratroopersIcon = assetUrl("images/ParatroopersIconWhite.svg");
 export const submarineIcon = assetUrl("images/SubmarineIconWhite.svg");

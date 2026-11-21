@@ -550,6 +550,11 @@ export class EngineConfig extends Config {
           (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 200_000),
           UnitType.Barracks,
         );
+      case UnitType.CoastalBattery:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 250_000),
+          UnitType.CoastalBattery,
+        );
       case UnitType.Radar:
         return this.costWrapper(
           (numUnits: number) => Math.min(600_000, pow2(numUnits) * 150_000),

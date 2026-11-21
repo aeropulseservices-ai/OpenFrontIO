@@ -19,6 +19,7 @@ import { BarracksExecution } from "./BarracksExecution";
 import { BomberExecution } from "./BomberExecution";
 import { CarrierExecution } from "./CarrierExecution";
 import { CityExecution } from "./CityExecution";
+import { CoastalBatteryExecution } from "./CoastalBatteryExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
 import { FighterExecution } from "./FighterExecution";
@@ -62,6 +63,8 @@ export function structureExecution(structure: Unit): Execution {
       return new RadarExecution(structure);
     case UnitType.Barracks:
       return new BarracksExecution(structure);
+    case UnitType.CoastalBattery:
+      return new CoastalBatteryExecution(structure);
     default:
       throw new Error(`${structure.type()} is not a structure`);
   }
@@ -216,6 +219,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.GoldMine:
       case UnitType.Radar:
       case UnitType.Barracks:
+      case UnitType.CoastalBattery:
         this.mg.addExecution(structureExecution(this.structure!));
         break;
       default:
@@ -239,6 +243,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.GoldMine:
       case UnitType.Radar:
       case UnitType.Barracks:
+      case UnitType.CoastalBattery:
         return true;
       default:
         return false;

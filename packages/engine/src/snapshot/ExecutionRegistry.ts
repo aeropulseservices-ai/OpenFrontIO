@@ -11,6 +11,7 @@ import { BomberExecutionSnapshot } from "../execution/BomberExecution";
 import { CargoPlaneExecutionSnapshot } from "../execution/CargoPlaneExecution";
 import { CarrierExecutionSnapshot } from "../execution/CarrierExecution";
 import { CityExecutionSnapshot } from "../execution/CityExecution";
+import { CoastalBatteryExecutionSnapshot } from "../execution/CoastalBatteryExecution";
 import { ConstructionExecutionSnapshot } from "../execution/ConstructionExecution";
 import { DefensePostExecutionSnapshot } from "../execution/DefensePostExecution";
 import { DeleteUnitExecutionSnapshot } from "../execution/DeleteUnitExecution";
@@ -89,6 +90,7 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   ParatrooperExecutionSnapshot,
   SubmarineExecutionSnapshot,
   BarracksExecutionSnapshot,
+  CoastalBatteryExecutionSnapshot,
   FighterExecutionSnapshot,
   BomberExecutionSnapshot,
   CarrierExecutionSnapshot,
