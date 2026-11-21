@@ -221,6 +221,7 @@
       "port": "Sends trade ships to generate gold",
       "radar": "Warns you when enemy ships or aircraft come near; sees through fog of war",
       "sam_launcher": "Defends against incoming nukes",
+      "spy_plane": "Flies over a rival and reports their troops, gold and buildings",
       "warship": "Captures trade ships, destroys ships and boats"
     },
     "not_enough_money": "Not enough money",
@@ -1284,6 +1285,7 @@
     "sent_emoji_all": "Sent everyone: {emoji}",
     "sent_gold_to_player": "Sent {gold} gold to {name}",
     "sent_troops_to_player": "Sent {troops} troops to {name}",
+    "spy_report": "Spy plane over {name}: {troops} troops, {gold} gold, {cities} cities, {sams} SAMs, {silos} missile silos, {airports} airports",
     "trade_ship_captured": "Your trade ship was captured by {name}",
     "unit_destroyed": "Your {unit} was destroyed",
     "unit_voluntarily_deleted": "Unit voluntarily deleted",
@@ -3299,6 +3301,7 @@
     "port": "Port",
     "radar": "Radar Station",
     "sam_launcher": "SAM Launcher",
+    "spy_plane": "Spy Plane",
     "warship": "Warship"
   },
   "update_available": {
@@ -3373,6 +3376,7 @@
     "build_sam_launcher": "Build SAM Launcher",
     "build_scroll_modifier": "Build Scroll Modifier",
     "build_scroll_modifier_desc": "Hold this key and scroll to change build amount.",
+    "build_spy_plane": "Build Spy Plane",
     "build_warship": "Build Warship",
     "camera_movement": "Camera Movement",
     "center_camera": "Center Camera",

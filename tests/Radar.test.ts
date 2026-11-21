@@ -15,7 +15,9 @@ let player: Player;
 let enemy: Player;
 
 function radarMessages(spy: ReturnType<typeof vi.spyOn>): unknown[][] {
-  return spy.mock.calls.filter((c) => c[1] === MessageType.RADAR_CONTACT);
+  return spy.mock.calls.filter(
+    (c: unknown[]) => c[1] === MessageType.RADAR_CONTACT,
+  );
 }
 
 describe("Radar station (mod)", () => {

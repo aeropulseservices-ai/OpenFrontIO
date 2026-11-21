@@ -30,6 +30,7 @@ const airportIcon = assetUrl("images/AirportIconWhite.svg");
 const carrierIcon = assetUrl("images/CarrierIconWhite.svg");
 const fighterIcon = assetUrl("images/FighterIconWhite.svg");
 const bomberIcon = assetUrl("images/BomberIconWhite.svg");
+const spyPlaneIcon = assetUrl("images/SpyPlaneIconWhite.svg");
 const bankIcon = assetUrl("images/BankIconWhite.svg");
 const radarIcon = assetUrl("images/RadarIconWhite.svg");
 const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
@@ -95,6 +96,13 @@ const buildTable: BuildItemDisplay[][] = [
       icon: bomberIcon,
       description: "build_menu.desc.bomber",
       key: "unit_type.bomber",
+      countable: true,
+    },
+    {
+      unitType: UnitType.SpyPlane,
+      icon: spyPlaneIcon,
+      description: "build_menu.desc.spy_plane",
+      key: "unit_type.spy_plane",
       countable: true,
     },
     {

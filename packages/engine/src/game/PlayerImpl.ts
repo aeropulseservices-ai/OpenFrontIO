@@ -1654,6 +1654,7 @@ export class PlayerImpl implements Player {
         return this.goldMineSpawn(targetTile, validTiles);
       case UnitType.Fighter:
       case UnitType.Bomber:
+      case UnitType.SpyPlane:
         return this.airStrikeSpawn(targetTile, unitType);
       case UnitType.CargoPlane:
         return this.landBasedUnitSpawn(targetTile);
@@ -1747,7 +1748,8 @@ export class PlayerImpl implements Player {
   // range of the target. Bombers may only target hostile players' land.
   airStrikeSpawn(tile: TileRef, type: UnitType): TileRef | false {
     if (this.mg.inSpawnPhase()) return false;
-    if (type === UnitType.Bomber) {
+    // Spy planes likewise only scout rivals.
+    if (type === UnitType.Bomber || type === UnitType.SpyPlane) {
       const owner = this.mg.owner(tile);
       if (!owner.isPlayer() || owner === this || this.isFriendly(owner)) {
         return false;

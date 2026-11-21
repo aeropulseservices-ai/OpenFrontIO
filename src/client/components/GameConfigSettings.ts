@@ -129,6 +129,7 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
     translationKey: "unit_type.aircraft_carrier",
   },
   { type: UnitType.Radar, translationKey: "unit_type.radar" },
+  { type: UnitType.SpyPlane, translationKey: "unit_type.spy_plane" },
 ];
 
 const MAP_ICON = svg`<path

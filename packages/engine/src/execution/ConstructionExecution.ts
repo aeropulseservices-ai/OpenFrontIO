@@ -28,6 +28,7 @@ import { PassiveIncomeExecution } from "./PassiveIncomeExecution";
 import { PortExecution } from "./PortExecution";
 import { RadarExecution } from "./RadarExecution";
 import { SAMLauncherExecution } from "./SAMLauncherExecution";
+import { SpyPlaneExecution } from "./SpyPlaneExecution";
 import { WarshipExecution } from "./WarshipExecution";
 
 /**
@@ -186,6 +187,9 @@ export class ConstructionExecution implements Execution {
         break;
       case UnitType.Bomber:
         this.mg.addExecution(new BomberExecution(player, this.tile));
+        break;
+      case UnitType.SpyPlane:
+        this.mg.addExecution(new SpyPlaneExecution(player, this.tile));
         break;
       case UnitType.AircraftCarrier:
         this.mg.addExecution(new CarrierExecution(player, this.tile));

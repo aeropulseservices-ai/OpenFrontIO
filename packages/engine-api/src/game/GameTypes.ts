@@ -232,6 +232,8 @@ export enum UnitType {
   AircraftCarrier = "Aircraft Carrier",
   // Mod: radar
   Radar = "Radar Station",
+  // Mod: reconnaissance
+  SpyPlane = "Spy Plane",
 }
 
 export enum TrainType {
@@ -255,6 +257,7 @@ export const BuildableAttacks = unitTypeGroup([
   UnitType.Fighter,
   UnitType.Bomber,
   UnitType.AircraftCarrier,
+  UnitType.SpyPlane,
 ] as const);
 
 export const Structures = unitTypeGroup([
@@ -505,6 +508,8 @@ export enum MessageType {
   RENEW_ALLIANCE,
   // Mod: a radar station picked up hostile ships or aircraft.
   RADAR_CONTACT,
+  // Mod: a spy plane reached its target and reports what it saw.
+  SPY_REPORT,
 }
 
 // Message categories used for filtering events in the EventsDisplay
@@ -541,6 +546,7 @@ export const MESSAGE_TYPE_CATEGORIES: Record<MessageType, MessageCategory> = {
   [MessageType.DONATION_RECEIVED]: MessageCategory.TRADE,
   [MessageType.CHAT]: MessageCategory.CHAT,
   [MessageType.RADAR_CONTACT]: MessageCategory.ATTACK,
+  [MessageType.SPY_REPORT]: MessageCategory.ATTACK,
 } as const;
 
 /**

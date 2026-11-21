@@ -26,6 +26,7 @@ export const UT_CARGO_PLANE = "Cargo Plane" as const;
 export const UT_FIGHTER = "Fighter" as const;
 export const UT_BOMBER = "Bomber" as const;
 export const UT_CARRIER = "Aircraft Carrier" as const;
+export const UT_SPY_PLANE = "Spy Plane" as const;
 
 // Structures
 export const UT_CITY = "City" as const;
@@ -78,6 +79,7 @@ export const AIRCRAFT_TYPES: ReadonlySet<string> = new Set([
   UT_CARGO_PLANE,
   UT_FIGHTER,
   UT_BOMBER,
+  UT_SPY_PLANE,
 ]);
 
 /** Units that leave a trail on the map (TrailManager). */
@@ -128,4 +130,5 @@ export const ALL_UNIT_TYPES = [
   UT_BOMBER,
   UT_CARRIER,
   UT_RADAR,
+  UT_SPY_PLANE,
 ] as const;
