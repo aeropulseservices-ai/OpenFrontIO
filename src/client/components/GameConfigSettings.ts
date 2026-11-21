@@ -124,6 +124,10 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.GoldMine, translationKey: "unit_type.gold_mine" },
   { type: UnitType.Fighter, translationKey: "unit_type.fighter" },
   { type: UnitType.Bomber, translationKey: "unit_type.bomber" },
+  {
+    type: UnitType.AircraftCarrier,
+    translationKey: "unit_type.aircraft_carrier",
+  },
 ];
 
 const MAP_ICON = svg`<path

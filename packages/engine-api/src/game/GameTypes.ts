@@ -229,6 +229,7 @@ export enum UnitType {
   // Mod: air force
   Fighter = "Fighter",
   Bomber = "Bomber",
+  AircraftCarrier = "Aircraft Carrier",
 }
 
 export enum TrainType {
@@ -251,6 +252,7 @@ export const BuildableAttacks = unitTypeGroup([
   UnitType.Warship,
   UnitType.Fighter,
   UnitType.Bomber,
+  UnitType.AircraftCarrier,
 ] as const);
 
 export const Structures = unitTypeGroup([

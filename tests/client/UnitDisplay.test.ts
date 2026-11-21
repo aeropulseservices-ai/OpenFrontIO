@@ -126,7 +126,7 @@ describe("mobile UnitDisplay layout", () => {
       expect(grid?.classList.contains("lg:auto-cols-max")).toBe(true);
       expect(grid?.classList.contains("side-bar:grid-flow-row")).toBe(true);
       expect(grid?.classList.contains("side-bar:grid-cols-1")).toBe(true);
-      expect(grid?.children).toHaveLength(15);
+      expect(grid?.children).toHaveLength(16);
     } finally {
       display.remove();
     }

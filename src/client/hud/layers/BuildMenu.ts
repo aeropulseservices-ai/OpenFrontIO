@@ -27,6 +27,7 @@ import {
 import { UIState } from "../../UIState";
 import { GameView } from "../../view";
 const airportIcon = assetUrl("images/AirportIconWhite.svg");
+const carrierIcon = assetUrl("images/CarrierIconWhite.svg");
 const fighterIcon = assetUrl("images/FighterIconWhite.svg");
 const bomberIcon = assetUrl("images/BomberIconWhite.svg");
 const bankIcon = assetUrl("images/BankIconWhite.svg");
@@ -93,6 +94,13 @@ const buildTable: BuildItemDisplay[][] = [
       icon: bomberIcon,
       description: "build_menu.desc.bomber",
       key: "unit_type.bomber",
+      countable: true,
+    },
+    {
+      unitType: UnitType.AircraftCarrier,
+      icon: carrierIcon,
+      description: "build_menu.desc.aircraft_carrier",
+      key: "unit_type.aircraft_carrier",
       countable: true,
     },
     {

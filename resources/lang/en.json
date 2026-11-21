@@ -205,6 +205,7 @@
   },
   "build_menu": {
     "desc": {
+      "aircraft_carrier": "Mobile airbase: fighters and bombers can take off from it",
       "airport": "Sends cargo planes to trade partners' airports, no coast needed",
       "atom_bomb": "Small explosion",
       "bank": "Pays interest on the gold you hold",
@@ -1895,7 +1896,6 @@
     "solo": "Solo",
     "store": "Store",
     "terms_of_service": "Terms of Service",
-    "title": "SkyFront (based on OpenFront)",
     "troubleshooting": "Troubleshooting",
     "tutorial": "Tutorial",
     "user_avatar_alt": "{username}'s avatar",
@@ -3277,6 +3277,7 @@
     "title": "Tutorial"
   },
   "unit_type": {
+    "aircraft_carrier": "Aircraft Carrier",
     "airport": "Airport",
     "atom_bomb": "Atom Bomb",
     "bank": "Bank",
@@ -3347,6 +3348,7 @@
     "build_atom_bomb": "Build Atom Bomb",
     "build_bank": "Build Bank",
     "build_bomber": "Build Bomber",
+    "build_carrier": "Build Aircraft Carrier",
     "build_city": "Build City",
     "build_controls": "Build Controls",
     "build_defense_post": "Build Defense Post",

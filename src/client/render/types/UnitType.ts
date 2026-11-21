@@ -25,6 +25,7 @@ export const UT_TRAIN = "Train" as const;
 export const UT_CARGO_PLANE = "Cargo Plane" as const;
 export const UT_FIGHTER = "Fighter" as const;
 export const UT_BOMBER = "Bomber" as const;
+export const UT_CARRIER = "Aircraft Carrier" as const;
 
 // Structures
 export const UT_CITY = "City" as const;
@@ -123,4 +124,5 @@ export const ALL_UNIT_TYPES = [
   UT_GOLD_MINE,
   UT_FIGHTER,
   UT_BOMBER,
+  UT_CARRIER,
 ] as const;

@@ -467,6 +467,22 @@ function playIntent(game: Game, p: Player, rand: PseudoRandom): Intent | null {
     const warshipIntent = buildWarshipIntent(game, p, rand);
     if (warshipIntent !== null) return warshipIntent;
   }
+  // Mod: aircraft carriers launch from ports like warships.
+  if (
+    p.units(UnitType.Warship).length > 0 &&
+    p.units(UnitType.AircraftCarrier).length === 0 &&
+    canAfford(game, p, UnitType.AircraftCarrier) &&
+    rand.chance(3)
+  ) {
+    const warshipIntent = buildWarshipIntent(game, p, rand);
+    if (
+      warshipIntent !== null &&
+      warshipIntent.type === "build_unit" &&
+      p.canBuild(UnitType.AircraftCarrier, warshipIntent.tile) !== false
+    ) {
+      return { ...warshipIntent, unit: UnitType.AircraftCarrier };
+    }
+  }
   const others = game.players().filter((o) => o !== p && o.isPlayer());
   const other = pick(rand, others);
   // Mod: air force. Send a fighter or a bomber at a random enemy tile.
