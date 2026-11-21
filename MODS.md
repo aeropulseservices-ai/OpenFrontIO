@@ -1,4 +1,4 @@
-# Air & Commerce mod
+# SkyFront: an air & commerce mod of OpenFront
 
 A personal mod of [OpenFront.io](https://github.com/openfrontio/OpenFrontIO)
 (AGPL-3.0, © OpenFront and contributors). The base game is unchanged; the
@@ -20,9 +20,11 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   is never rewritten, squashed or force-pushed over. Mod changes are added as
   new commits through pull requests.
 - **Attribution** (AGPL section 7 additional terms): the
-  "© OpenFront and Contributors" notice stays visible in the game, and this
+  "© OpenFront and Contributors" notice stays visible in the footer, and this
   mod does not present itself as the official OpenFront game or imply
-  endorsement by OpenFront Inc.
+  endorsement by OpenFront Inc. Its title is **SkyFront (based on OpenFront)**,
+  with its own logo and favicon (`resources/images/SkyFront*.svg`, CC BY-SA 4.0)
+  in place of the proprietary OpenFront logo.
 
 ## Features
 
@@ -50,6 +52,7 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
 - AI nations build banks and gold mines too.
 
 ### Air force
+
 - **Fighter** — 400k (+100k per fighter you have, max 800k), hotkey `Shift+4`.
   Click any tile within 350 tiles of one of your airports: the fighter takes
   off from the nearest airport, circles that spot and shoots down hostile
