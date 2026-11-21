@@ -516,7 +516,10 @@ export class WebGLFrameBuilder {
     const sighters: FogSighter[] = [];
     for (const u of gameView.units()) {
       if (!u.isActive() || friendly[u.owner().smallID()] !== 1) continue;
-      const radius = FOG_UNIT_SIGHT.get(u.type());
+      const radius =
+        u.type() === UnitType.Radar
+          ? gameView.config().radarRange(u.level())
+          : FOG_UNIT_SIGHT.get(u.type());
       if (radius === undefined) continue;
       sighters.push({
         x: gameView.x(u.tile()),

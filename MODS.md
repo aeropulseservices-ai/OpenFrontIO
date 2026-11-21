@@ -74,6 +74,14 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   is. Click it to select it, then click water to move it, the same way you move
   warships. Enemy warships hunt carriers first, so keep yours escorted.
 
+### Radar stations
+
+- **Radar Station**: 150k (doubling per station, max 600k), hotkey
+  `Shift+7`. Build it on your own land; upgrade it for more range (80 tiles,
+  +20 per level). It warns you in the events feed the first time it picks up
+  each hostile warship, carrier, transport ship, fighter or bomber in range.
+  With fog of war on, it also lets you see its whole range.
+
 ### Fog of war
 
 Turn on **Fog of War** in the game settings (single player or a private

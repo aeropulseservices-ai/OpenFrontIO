@@ -179,6 +179,14 @@ export class Config {
   isUnitDisabled(unitType: UnitType): boolean {
     return this._gameConfig.disabledUnits?.includes(unitType) ?? false;
   }
+  /**
+   * Mod: how far (in tiles) a radar station of this level reports contacts,
+   * and sees under fog of war.
+   */
+  radarRange(level: number): number {
+    return 80 + 20 * (level - 1);
+  }
+
   instantBuild(): boolean {
     return this._gameConfig.instantBuild;
   }
@@ -243,6 +251,7 @@ export class Config {
       case UnitType.Airport:
       case UnitType.Bank:
       case UnitType.GoldMine:
+      case UnitType.Radar:
         info = {
           constructionDuration: this.instantBuild() ? 0 : 5 * 10,
           upgradable: true,

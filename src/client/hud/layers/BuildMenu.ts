@@ -31,6 +31,7 @@ const carrierIcon = assetUrl("images/CarrierIconWhite.svg");
 const fighterIcon = assetUrl("images/FighterIconWhite.svg");
 const bomberIcon = assetUrl("images/BomberIconWhite.svg");
 const bankIcon = assetUrl("images/BankIconWhite.svg");
+const radarIcon = assetUrl("images/RadarIconWhite.svg");
 const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
@@ -164,6 +165,13 @@ const buildTable: BuildItemDisplay[][] = [
       icon: goldMineIcon,
       description: "build_menu.desc.gold_mine",
       key: "unit_type.gold_mine",
+      countable: true,
+    },
+    {
+      unitType: UnitType.Radar,
+      icon: radarIcon,
+      description: "build_menu.desc.radar",
+      key: "unit_type.radar",
       countable: true,
     },
   ],

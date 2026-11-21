@@ -6,6 +6,7 @@ export const fighterIcon = assetUrl("images/FighterIconWhite.svg");
 export const bomberIcon = assetUrl("images/BomberIconWhite.svg");
 export const bankIcon = assetUrl("images/BankIconWhite.svg");
 export const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
+export const radarIcon = assetUrl("images/RadarIconWhite.svg");
 export const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 export const cityIcon = assetUrl("images/CityIconWhite.svg");
 export const factoryIcon = assetUrl("images/FactoryIconWhite.svg");
