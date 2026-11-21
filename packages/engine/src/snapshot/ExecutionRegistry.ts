@@ -8,6 +8,7 @@ import { AttackExecutionSnapshot } from "../execution/AttackExecution";
 import { BoatRetreatExecutionSnapshot } from "../execution/BoatRetreatExecution";
 import { BomberExecutionSnapshot } from "../execution/BomberExecution";
 import { CargoPlaneExecutionSnapshot } from "../execution/CargoPlaneExecution";
+import { CarrierExecutionSnapshot } from "../execution/CarrierExecution";
 import { CityExecutionSnapshot } from "../execution/CityExecution";
 import { ConstructionExecutionSnapshot } from "../execution/ConstructionExecution";
 import { DefensePostExecutionSnapshot } from "../execution/DefensePostExecution";
@@ -80,6 +81,7 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   PassiveIncomeExecutionSnapshot,
   FighterExecutionSnapshot,
   BomberExecutionSnapshot,
+  CarrierExecutionSnapshot,
   MarkDisconnectedExecutionSnapshot,
   MirvExecutionSnapshot,
   MissileSiloExecutionSnapshot,

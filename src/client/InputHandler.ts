@@ -139,6 +139,7 @@ export function highlightTypesForUnit(
     case UnitType.HydrogenBomb:
       return [UnitType.MissileSilo, UnitType.SAMLauncher];
     case UnitType.Warship:
+    case UnitType.AircraftCarrier:
       return [UnitType.Port];
     case UnitType.Fighter:
     case UnitType.Bomber:
@@ -660,6 +661,7 @@ export class InputHandler {
       "buildGoldMine",
       "buildFighter",
       "buildBomber",
+      "buildCarrier",
     ];
     buildKeybinds = buildKeybinds.map((i: string): string => {
       return this.keybinds[i];
@@ -1921,6 +1923,7 @@ export class InputHandler {
       { key: "buildGoldMine", type: UnitType.GoldMine },
       { key: "buildFighter", type: UnitType.Fighter },
       { key: "buildBomber", type: UnitType.Bomber },
+      { key: "buildCarrier", type: UnitType.AircraftCarrier },
     ];
     for (const { key, type } of buildKeybinds) {
       if (this.keybindMatchesEvent({ code, shiftKey }, this.keybinds[key]))

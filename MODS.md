@@ -65,6 +65,15 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   60% of their nuke range, and enemy fighters intercept it. You can't bomb
   allies or teammates.
 
+### Aircraft carriers
+
+- **Aircraft carrier**: 2M (+1M per carrier you have, max 4M), hotkey
+  `Shift+6`. It's built from a port like a warship and has 2000 health. It
+  carries no guns of its own; instead it works as a floating airport, so
+  fighters and bombers can launch from it, out to 350 tiles from wherever it
+  is. Click it to select it, then click water to move it, the same way you move
+  warships. Enemy warships hunt carriers first, so keep yours escorted.
+
 ## Running it locally
 
 Requires Node 24 and npm 12 (`npm i -g npm@12`).

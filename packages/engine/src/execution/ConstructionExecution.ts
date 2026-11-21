@@ -16,6 +16,7 @@ import type {
 } from "../snapshot/SnapshotContext";
 import { AirportExecution } from "./AirportExecution";
 import { BomberExecution } from "./BomberExecution";
+import { CarrierExecution } from "./CarrierExecution";
 import { CityExecution } from "./CityExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
@@ -182,6 +183,9 @@ export class ConstructionExecution implements Execution {
         break;
       case UnitType.Bomber:
         this.mg.addExecution(new BomberExecution(player, this.tile));
+        break;
+      case UnitType.AircraftCarrier:
+        this.mg.addExecution(new CarrierExecution(player, this.tile));
         break;
       case UnitType.Port:
       case UnitType.MissileSilo:

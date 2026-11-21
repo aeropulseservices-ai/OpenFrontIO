@@ -44,6 +44,7 @@ export function getDefaultKeybinds(isMac: boolean): Record<string, string> {
     buildGoldMine: "Shift+Digit3",
     buildFighter: "Shift+Digit4",
     buildBomber: "Shift+Digit5",
+    buildCarrier: "Shift+Digit6",
     attackRatioDown: "KeyT",
     attackRatioUp: "KeyY",
     boatAttack: "KeyB",

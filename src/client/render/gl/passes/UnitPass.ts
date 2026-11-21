@@ -42,6 +42,7 @@ import {
   UT_ATOM_BOMB,
   UT_BOMBER,
   UT_CARGO_PLANE,
+  UT_CARRIER,
   UT_FIGHTER,
   UT_HYDROGEN_BOMB,
   UT_MIRV,
@@ -93,6 +94,7 @@ const UNIT_ORDER = [
   UT_CARGO_PLANE,
   UT_FIGHTER,
   UT_BOMBER,
+  UT_CARRIER,
 ] as const;
 
 const ATLAS_COLS = UNIT_ORDER.length;

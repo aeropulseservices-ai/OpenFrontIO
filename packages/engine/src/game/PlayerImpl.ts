@@ -1630,6 +1630,7 @@ export class PlayerImpl implements Player {
       case UnitType.Port:
         return this.portSpawn(targetTile, validTiles);
       case UnitType.Warship:
+      case UnitType.AircraftCarrier:
         return this.warshipSpawn(targetTile);
       case UnitType.Shell:
       case UnitType.SAMMissile:
@@ -1765,7 +1766,7 @@ export class PlayerImpl implements Player {
 
   /** Units aircraft can take off from. */
   airBases(): Unit[] {
-    return this.units(UnitType.Airport);
+    return this.units(UnitType.Airport, UnitType.AircraftCarrier);
   }
 
   // Mod: gold mines only go on highland or mountain tiles.

@@ -118,6 +118,10 @@ export interface UnitParamsMap {
 
   [UnitType.Bomber]: Record<string, never>;
 
+  [UnitType.AircraftCarrier]: {
+    patrolTile: TileRef;
+  };
+
   [UnitType.CargoPlane]: {
     targetUnit: Unit;
   };

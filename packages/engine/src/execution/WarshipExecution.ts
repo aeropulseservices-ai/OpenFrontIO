@@ -135,7 +135,11 @@ export class WarshipExecution implements Execution {
     }
 
     // Priority 2: Fight enemy warship if in range
-    if (this.warship.targetUnit()?.type() === UnitType.Warship) {
+    const targetType = this.warship.targetUnit()?.type();
+    if (
+      targetType === UnitType.Warship ||
+      targetType === UnitType.AircraftCarrier
+    ) {
       this.shootTarget();
       this.patrol();
       return;
@@ -252,7 +256,12 @@ export class WarshipExecution implements Execution {
 
   private findTargetUnit(): Unit | undefined {
     return this.findBestTarget(
-      [UnitType.TransportShip, UnitType.Warship, UnitType.TradeShip],
+      [
+        UnitType.TransportShip,
+        UnitType.Warship,
+        UnitType.TradeShip,
+        UnitType.AircraftCarrier,
+      ],
       true,
     );
   }
@@ -337,7 +346,11 @@ export class WarshipExecution implements Execution {
       }
 
       const typePriority =
-        type === UnitType.TransportShip ? 0 : type === UnitType.Warship ? 1 : 2;
+        type === UnitType.TransportShip
+          ? 0
+          : type === UnitType.Warship || type === UnitType.AircraftCarrier
+            ? 1
+            : 2;
 
       if (
         bestUnit === undefined ||

@@ -423,6 +423,10 @@
       "radius": 6,
       "intensity": 2.4
     },
+    "Aircraft Carrier": {
+      "radius": 10,
+      "intensity": 2.8
+    },
     "Transport": {
       "radius": 6,
       "intensity": 2.7

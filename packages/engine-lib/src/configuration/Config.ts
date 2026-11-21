@@ -275,6 +275,9 @@ export class Config {
       case UnitType.Bomber:
         info = { maxHealth: 400 };
         break;
+      case UnitType.AircraftCarrier:
+        info = { maxHealth: 2000 };
+        break;
       default:
         assertNever(type);
     }

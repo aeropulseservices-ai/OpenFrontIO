@@ -1561,6 +1561,16 @@ export class UserSettingModal extends BaseModal {
       ></setting-keybind>
 
       <setting-keybind
+        action="buildCarrier"
+        label=${translateText("user_setting.build_carrier")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildCarrier}
+        .value=${this.getKeyValue("buildCarrier")}
+        .display=${this.getKeyChar("buildCarrier")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
         action="buildScrollModifier"
         .allowModifiers=${true}
         label=${translateText("user_setting.build_scroll_modifier")}
