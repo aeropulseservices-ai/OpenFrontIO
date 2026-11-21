@@ -12,6 +12,7 @@
 import type { MapLayer } from "@openfront/engine-api/game/MapFiles";
 import type { Config } from "@openfront/engine-lib/configuration/Config";
 import { translateText } from "../../Utils";
+import { type FogGrid, fogVisibleAt } from "../frame/derive/FogOfWar";
 import type { SpiralRibbon } from "../frame/SpiralTrails";
 import type {
   AttackRingInput,
@@ -39,6 +40,7 @@ import { CrosshairPass } from "./passes/CrosshairPass";
 import { DefenseCoveragePass } from "./passes/DefenseCoveragePass";
 import { FalloutBloomPass } from "./passes/FalloutBloomPass";
 import { FalloutLightPass } from "./passes/FalloutLightPass";
+import { FogPass } from "./passes/FogPass";
 import { FxPass } from "./passes/fx-pass";
 import { LightmapPass } from "./passes/LightmapPass";
 import { MapLayerPass } from "./passes/MapLayerPass";
@@ -148,6 +150,9 @@ export class GPURenderer {
   private affiliationPalette: AffiliationPalette;
   private coordinateGridPass: CoordinateGridPass;
   private spawnOverlayPass: SpawnOverlayPass;
+  private fogPass: FogPass;
+  private fogGrid: FogGrid | null = null;
+  private namePlayersScratch = new Map<number, PlayerState>();
   private smallPlayerGlowPass: SmallPlayerGlowPass;
   private inSpawnPhase = false;
 
@@ -195,6 +200,7 @@ export class GPURenderer {
   // Local player relationship data (for SAM radius coloring)
   private localPlayerID = 0;
   private playerTeams = new Map<number, string>(); // smallID → team
+  private playerSmallIDs = new Map<string, number>(); // player id → smallID
 
   // Alt-view: affiliation recoloring (space hold)
   private altView = false;
@@ -453,6 +459,10 @@ export class GPURenderer {
     );
     this.territoryPass.setBorderTex(this.res.borderTex);
 
+    this.fogPass = new FogPass(gl, mapW, mapH, () =>
+      this.terrainPass.texture(),
+    );
+
     // --- Spawn overlay (needs tileTex) ---
     this.spawnOverlayPass = new SpawnOverlayPass(
       gl,
@@ -648,6 +658,7 @@ export class GPURenderer {
 
     for (const p of header.players) {
       if (p.team !== null) this.playerTeams.set(p.smallID, p.team);
+      this.playerSmallIDs.set(p.id, p.smallID);
     }
     // Team mode = any player has a team. Drives skin tint behavior:
     // FFA shows raw skin colors; teams multiply skin by team primary color.
@@ -787,6 +798,7 @@ export class GPURenderer {
     this.namePass.addPlayers(players, this.paletteData);
     for (const p of players) {
       if (p.team !== null) this.playerTeams.set(p.smallID, p.team);
+      this.playerSmallIDs.set(p.id, p.smallID);
     }
     // Renderer was constructed with players: [] (real list arrives via this
     // method), so team mode must be re-evaluated whenever new players arrive
@@ -934,7 +946,12 @@ export class GPURenderer {
     snap: boolean,
     statusData?: Map<number, PlayerStatusData>,
   ): void {
-    this.namePass.updateNames(names, players, snap, statusData);
+    this.namePass.updateNames(
+      names,
+      this.fogGrid === null ? players : this.fogNamePlayers(names, players),
+      snap,
+      statusData,
+    );
 
     // Extract local player's allies + teammates for SAM radius coloring
     if (this.localPlayerID > 0) {
@@ -1096,6 +1113,36 @@ export class GPURenderer {
   updateSpawnOverlay(inSpawnPhase: boolean, centers: SpawnCenter[]): void {
     this.inSpawnPhase = inSpawnPhase;
     this.spawnOverlayPass.update(centers);
+  }
+
+  /** Fog of war visibility, or null for no fog. */
+  updateFog(grid: FogGrid | null): void {
+    this.fogGrid = grid;
+    this.fogPass.update(grid);
+  }
+
+  /**
+   * Under fog of war, names whose label sits in the fog are hidden: the name
+   * pass sees those players as not alive until their label is in sight.
+   */
+  private fogNamePlayers(
+    names: Map<string, NameEntry>,
+    players: Map<number, PlayerState>,
+  ): Map<number, PlayerState> {
+    const grid = this.fogGrid!;
+    const out = this.namePlayersScratch;
+    out.clear();
+    for (const [sid, ps] of players) out.set(sid, ps);
+    for (const entry of names.values()) {
+      const sid = this.playerSmallIDs.get(entry.playerID);
+      if (sid === undefined || sid === this.localPlayerID) continue;
+      const ps = players.get(sid);
+      if (ps === undefined || !ps.isAlive) continue;
+      if (!fogVisibleAt(grid, entry.x, entry.y)) {
+        out.set(sid, { ...ps, isAlive: false });
+      }
+    }
+    return out;
   }
 
   updateSmallPlayerGlow(set: Uint8Array | null): void {
@@ -1380,6 +1427,8 @@ export class GPURenderer {
     // trail them. Skipped in alt view — the strategic overlay stays effects-free.
     if (!this.altView) this.spiralRibbonPass.draw(cam);
     if (pe.unit) this.unitPass.drawMissiles(cam);
+    // Fog of war covers everything above, but not explosions or names.
+    this.fogPass.draw(cam);
 
     if (pe.fx) {
       this.fxPass.tick();
@@ -1499,6 +1548,7 @@ export class GPURenderer {
     this.affiliationPalette.dispose();
     this.coordinateGridPass.dispose();
     this.spawnOverlayPass.dispose();
+    this.fogPass.dispose();
     this.smallPlayerGlowPass.dispose();
     this.railroadPass.dispose();
     this.rangeCirclePass.dispose();

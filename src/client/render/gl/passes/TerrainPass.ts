@@ -146,6 +146,11 @@ export class TerrainPass {
     }
   }
 
+  /** The terrain color texture (the fog pass redraws it, dimmed). */
+  texture(): WebGLTexture {
+    return this.tex;
+  }
+
   /** Render the terrain. Call with depth test disabled, no blending. */
   draw(cameraMatrix: Float32Array): void {
     const gl = this.gl;

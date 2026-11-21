@@ -74,6 +74,19 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   is. Click it to select it, then click water to move it, the same way you move
   warships. Enemy warships hunt carriers first, so keep yours escorted.
 
+### Fog of war
+
+Turn on **Fog of War** in the game settings (single player or a private
+lobby) to play without seeing the whole map. You see your own and your
+allies' land plus about 24 tiles around it, and a circle around each of your
+ships and aircraft (warships and fighters 30 tiles, carriers 35, bombers 20,
+transports and cargo planes 15, trade ships 12). Everything else shows as
+dark bare terrain: enemy land, buildings, units and names are hidden until
+you get close. Your scouting matters: send a fighter or warship to look.
+
+The fog is drawn by your own game client only, so it's for fun with friends
+rather than a cheat-proof competitive mode.
+
 ## Running it locally
 
 Requires Node 24 and npm 12 (`npm i -g npm@12`).

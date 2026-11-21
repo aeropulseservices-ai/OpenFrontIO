@@ -318,6 +318,8 @@ export const GameConfigSchema = z.compile(
     // that only know publicIds at create_game); resolved to clientID at lookup.
     nameRevealPublicIds: z.string().array().max(200).optional(),
     waterNukes: z.boolean().nullable().optional(),
+    // SkyFront mod: hide what's far from your own land and units.
+    fogOfWar: z.boolean().nullable().optional(),
     randomSpawn: z.boolean(),
     // The onboarding tutorial (docs/OnboardingTutorial.md): nations and tribes
     // only grow into free land, and the game ends once the human is alone.
