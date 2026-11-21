@@ -27,6 +27,7 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
 ## Features
 
 ### Airports and air cargo
+
 - **Airport** — land structure, built anywhere in your territory (no coast
   needed). Upgradable. Costs 125k, doubling per airport, capped at 1M.
   Hotkey: `Shift+1`.
@@ -35,6 +36,17 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   both sides 60% of what a trade ship would for the same distance. Planes can't
   be captured; embargoes and losing either airport cancel the flight.
 - AI nations build airports too (about one per three cities).
+
+### More ways to earn gold
+- **City taxes** — every finished city level adds 10 gold per tick (100 per
+  second) on top of the normal income.
+- **Bank** — land structure, upgradable. Every 10 seconds it pays 0.5% of the
+  gold you're holding per level, capped at 25k per level. Costs 250k, doubling
+  per bank, capped at 2M. Hotkey: `Shift+2`.
+- **Gold mine** — only on highland or mountain tiles, upgradable. Pays 20k per
+  level every 10 seconds. Costs 150k, doubling per mine, capped at 1M.
+  Hotkey: `Shift+3`.
+- AI nations build banks and gold mines too.
 
 ## Running it locally
 

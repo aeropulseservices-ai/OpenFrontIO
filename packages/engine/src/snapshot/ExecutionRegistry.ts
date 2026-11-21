@@ -25,6 +25,7 @@ import { MoveWarshipExecutionSnapshot } from "../execution/MoveWarshipExecution"
 import { NationExecutionSnapshot } from "../execution/NationExecution";
 import { NoOpExecutionSnapshot } from "../execution/NoOpExecution";
 import { NukeExecutionSnapshot } from "../execution/NukeExecution";
+import { PassiveIncomeExecutionSnapshot } from "../execution/PassiveIncomeExecution";
 import { PauseExecutionSnapshot } from "../execution/PauseExecution";
 import { PlayerExecutionSnapshot } from "../execution/PlayerExecution";
 import { PortExecutionSnapshot } from "../execution/PortExecution";
@@ -74,6 +75,7 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   FactoryExecutionSnapshot,
   AirportExecutionSnapshot,
   CargoPlaneExecutionSnapshot,
+  PassiveIncomeExecutionSnapshot,
   MarkDisconnectedExecutionSnapshot,
   MirvExecutionSnapshot,
   MissileSiloExecutionSnapshot,

@@ -27,6 +27,8 @@ import {
 import { UIState } from "../../UIState";
 import { GameView } from "../../view";
 const airportIcon = assetUrl("images/AirportIconWhite.svg");
+const bankIcon = assetUrl("images/BankIconWhite.svg");
+const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
 const factoryIcon = assetUrl("images/FactoryIconWhite.svg");
@@ -124,6 +126,20 @@ const buildTable: BuildItemDisplay[][] = [
       icon: airportIcon,
       description: "build_menu.desc.airport",
       key: "unit_type.airport",
+      countable: true,
+    },
+    {
+      unitType: UnitType.Bank,
+      icon: bankIcon,
+      description: "build_menu.desc.bank",
+      key: "unit_type.bank",
+      countable: true,
+    },
+    {
+      unitType: UnitType.GoldMine,
+      icon: goldMineIcon,
+      description: "build_menu.desc.gold_mine",
+      key: "unit_type.gold_mine",
       countable: true,
     },
   ],

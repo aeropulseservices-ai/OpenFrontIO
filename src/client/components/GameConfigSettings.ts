@@ -120,6 +120,8 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.MIRV, translationKey: "unit_type.mirv" },
   { type: UnitType.Factory, translationKey: "unit_type.factory" },
   { type: UnitType.Airport, translationKey: "unit_type.airport" },
+  { type: UnitType.Bank, translationKey: "unit_type.bank" },
+  { type: UnitType.GoldMine, translationKey: "unit_type.gold_mine" },
 ];
 
 const MAP_ICON = svg`<path

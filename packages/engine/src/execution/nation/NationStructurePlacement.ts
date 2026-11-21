@@ -118,7 +118,10 @@ export class NationStructurePlacement {
       case UnitType.MissileSilo:
         return this.missileSiloValue();
       case UnitType.Airport:
-        return this.missileSiloValue(UnitType.Airport);
+      case UnitType.Bank:
+      case UnitType.GoldMine:
+        // Inland, high ground, spaced out: gold mines need high ground anyway.
+        return this.missileSiloValue(type);
       case UnitType.Factory:
         return this.factoryValue();
       case UnitType.Port:

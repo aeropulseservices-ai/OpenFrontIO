@@ -110,6 +110,10 @@ export interface UnitParamsMap {
 
   [UnitType.Airport]: Record<string, never>;
 
+  [UnitType.Bank]: Record<string, never>;
+
+  [UnitType.GoldMine]: Record<string, never>;
+
   [UnitType.CargoPlane]: {
     targetUnit: Unit;
   };

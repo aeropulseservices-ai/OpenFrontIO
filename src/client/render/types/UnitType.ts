@@ -33,6 +33,8 @@ export const UT_SAM_LAUNCHER = "SAM Launcher" as const;
 export const UT_MISSILE_SILO = "Missile Silo" as const;
 // Mod structures
 export const UT_AIRPORT = "Airport" as const;
+export const UT_BANK = "Bank" as const;
+export const UT_GOLD_MINE = "Gold Mine" as const;
 
 // ---------------------------------------------------------------------------
 // Derived sets
@@ -46,6 +48,8 @@ export const STRUCTURE_TYPES: ReadonlySet<string> = new Set([
   UT_SAM_LAUNCHER,
   UT_MISSILE_SILO,
   UT_AIRPORT,
+  UT_BANK,
+  UT_GOLD_MINE,
 ]);
 
 export const NUKE_TYPES: ReadonlySet<string> = new Set([
@@ -109,4 +113,6 @@ export const ALL_UNIT_TYPES = [
   UT_TRAIN,
   UT_AIRPORT,
   UT_CARGO_PLANE,
+  UT_BANK,
+  UT_GOLD_MINE,
 ] as const;

@@ -17,9 +17,11 @@
 import type { GhostPreviewData, RendererConfig, UnitState } from "../../types";
 import {
   UT_AIRPORT,
+  UT_BANK,
   UT_CITY,
   UT_DEFENSE_POST,
   UT_FACTORY,
+  UT_GOLD_MINE,
   UT_MISSILE_SILO,
   UT_PORT,
   UT_SAM_LAUNCHER,
@@ -55,6 +57,8 @@ const STRUCTURE_ORDER = [
   UT_SAM_LAUNCHER,
   UT_MISSILE_SILO,
   UT_AIRPORT,
+  UT_BANK,
+  UT_GOLD_MINE,
 ] as const;
 
 const ATLAS_COLS = STRUCTURE_ORDER.length;

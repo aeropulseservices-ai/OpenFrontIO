@@ -241,6 +241,8 @@ export class Config {
         };
         break;
       case UnitType.Airport:
+      case UnitType.Bank:
+      case UnitType.GoldMine:
         info = {
           constructionDuration: this.instantBuild() ? 0 : 5 * 10,
           upgradable: true,

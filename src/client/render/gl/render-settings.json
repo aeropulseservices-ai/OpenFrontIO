@@ -155,6 +155,14 @@
       "Airport": {
         "scale": 1.4,
         "iconFill": 1
+      },
+      "Bank": {
+        "scale": 1.05,
+        "iconFill": 0.85
+      },
+      "Gold Mine": {
+        "scale": 1.1,
+        "iconFill": 0.85
       }
     },
     "highlightOutlineWidth": 0.04,
@@ -392,6 +400,14 @@
       "intensity": 1.2
     },
     "Airport": {
+      "radius": 18,
+      "intensity": 1.2
+    },
+    "Bank": {
+      "radius": 18,
+      "intensity": 1.2
+    },
+    "Gold Mine": {
       "radius": 18,
       "intensity": 1.2
     },

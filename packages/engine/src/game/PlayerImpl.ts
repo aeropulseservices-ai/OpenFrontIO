@@ -19,6 +19,7 @@ import {
   Relation,
   Structures,
   Team,
+  TerrainType,
   TerraNullius,
   Tick,
   UnitType,
@@ -1645,7 +1646,10 @@ export class PlayerImpl implements Player {
       case UnitType.City:
       case UnitType.Factory:
       case UnitType.Airport:
+      case UnitType.Bank:
         return this.landBasedStructureSpawn(targetTile, validTiles);
+      case UnitType.GoldMine:
+        return this.goldMineSpawn(targetTile, validTiles);
       case UnitType.CargoPlane:
         return this.landBasedUnitSpawn(targetTile);
       default:
@@ -1732,6 +1736,24 @@ export class PlayerImpl implements Player {
     );
 
     return bestPort?.tile() ?? false;
+  }
+
+  // Mod: gold mines only go on highland or mountain tiles.
+  goldMineSpawn(
+    tile: TileRef,
+    validTiles: TileRef[] | null = null,
+  ): TileRef | false {
+    const tiles = validTiles ?? this.validStructureSpawnTiles(tile);
+    for (const t of tiles) {
+      const terrain = this.mg.terrainType(t);
+      if (
+        terrain === TerrainType.Highland ||
+        terrain === TerrainType.Mountain
+      ) {
+        return t;
+      }
+    }
+    return false;
   }
 
   landBasedUnitSpawn(tile: TileRef): TileRef | false {
