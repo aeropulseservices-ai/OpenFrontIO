@@ -5,6 +5,25 @@ A personal mod of [OpenFront.io](https://github.com/openfrontio/OpenFrontIO)
 features below are added on top and can each be switched off in the game's
 unit settings like any other unit.
 
+## License and attribution
+
+This fork follows the upstream licensing exactly (see `LICENSE` and
+`LICENSING.md`, which are kept unchanged):
+
+- **Code** is AGPL v3.0, including every file this mod adds. The fork stays
+  public and open source, and anyone who plays a hosted copy of it must be
+  able to get its source (AGPL section 13), for example from this repository.
+- **Assets** in `resources/` are CC BY-SA 4.0; the new icons and sprites this
+  mod adds are released under the same license. Assets in `proprietary/` stay
+  All Rights Reserved and are only used as part of the game, unmodified.
+- **History**: this fork is built on top of the upstream commit history, which
+  is never rewritten, squashed or force-pushed over. Mod changes are added as
+  new commits through pull requests.
+- **Attribution** (AGPL section 7 additional terms): the
+  "© OpenFront and Contributors" notice stays visible in the game, and this
+  mod does not present itself as the official OpenFront game or imply
+  endorsement by OpenFront Inc.
+
 ## Features
 
 ### Airports and air cargo
