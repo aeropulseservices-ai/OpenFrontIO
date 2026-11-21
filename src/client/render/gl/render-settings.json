@@ -163,6 +163,10 @@
       "Gold Mine": {
         "scale": 1.1,
         "iconFill": 0.85
+      },
+      "Radar Station": {
+        "scale": 1.25,
+        "iconFill": 0.85
       }
     },
     "highlightOutlineWidth": 0.04,
@@ -408,6 +412,10 @@
       "intensity": 1.2
     },
     "Gold Mine": {
+      "radius": 18,
+      "intensity": 1.2
+    },
+    "Radar Station": {
       "radius": 18,
       "intensity": 1.2
     },

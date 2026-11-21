@@ -509,6 +509,11 @@ export class EngineConfig extends Config {
           (numUnits: number) => Math.min(2_000_000, pow2(numUnits) * 250_000),
           UnitType.Bank,
         );
+      case UnitType.Radar:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(600_000, pow2(numUnits) * 150_000),
+          UnitType.Radar,
+        );
       case UnitType.GoldMine:
         return this.costWrapper(
           (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 150_000),

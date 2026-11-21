@@ -26,6 +26,7 @@ import { MissileSiloExecution } from "./MissileSiloExecution";
 import { NukeExecution } from "./NukeExecution";
 import { PassiveIncomeExecution } from "./PassiveIncomeExecution";
 import { PortExecution } from "./PortExecution";
+import { RadarExecution } from "./RadarExecution";
 import { SAMLauncherExecution } from "./SAMLauncherExecution";
 import { WarshipExecution } from "./WarshipExecution";
 
@@ -53,6 +54,8 @@ export function structureExecution(structure: Unit): Execution {
     case UnitType.Bank:
     case UnitType.GoldMine:
       return new PassiveIncomeExecution(structure);
+    case UnitType.Radar:
+      return new RadarExecution(structure);
     default:
       throw new Error(`${structure.type()} is not a structure`);
   }
@@ -196,6 +199,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.Airport:
       case UnitType.Bank:
       case UnitType.GoldMine:
+      case UnitType.Radar:
         this.mg.addExecution(structureExecution(this.structure!));
         break;
       default:
@@ -217,6 +221,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.Airport:
       case UnitType.Bank:
       case UnitType.GoldMine:
+      case UnitType.Radar:
         return true;
       default:
         return false;

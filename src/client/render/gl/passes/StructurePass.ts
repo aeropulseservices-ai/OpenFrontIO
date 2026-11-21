@@ -23,6 +23,7 @@ import {
   UT_FACTORY,
   UT_GOLD_MINE,
   UT_MISSILE_SILO,
+  UT_RADAR,
   UT_PORT,
   UT_SAM_LAUNCHER,
 } from "../../types";
@@ -59,6 +60,7 @@ const STRUCTURE_ORDER = [
   UT_AIRPORT,
   UT_BANK,
   UT_GOLD_MINE,
+  UT_RADAR,
 ] as const;
 
 const ATLAS_COLS = STRUCTURE_ORDER.length;

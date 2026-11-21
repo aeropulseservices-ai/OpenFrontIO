@@ -219,6 +219,7 @@
       "mirv": "Huge explosion, only targets selected player",
       "missile_silo": "Used to launch nukes",
       "port": "Sends trade ships to generate gold",
+      "radar": "Warns you when enemy ships or aircraft come near; sees through fog of war",
       "sam_launcher": "Defends against incoming nukes",
       "warship": "Captures trade ships, destroys ships and boats"
     },
@@ -1269,6 +1270,8 @@
     "missile_intercepted": "SAM intercepted {unit}",
     "naval_invasion_inbound": "Naval invasion incoming from {name} ({troops})",
     "no_boats_available": "No boats available, max {max}",
+    "radar_contact": "Radar: {name}'s {unit} spotted",
+    "radar_contacts": "Radar: {count} contacts, including {name}'s {unit}",
     "received_gold_from_captured_ship": "Received {gold} gold from ship captured from {name}",
     "received_gold_from_conquest": "Conquered {name}, received {gold} gold",
     "received_gold_from_player": "Received {gold} gold from {name}",
@@ -3294,6 +3297,7 @@
     "mirv": "MIRV",
     "missile_silo": "Missile Silo",
     "port": "Port",
+    "radar": "Radar Station",
     "sam_launcher": "SAM Launcher",
     "warship": "Warship"
   },
@@ -3365,6 +3369,7 @@
     "build_multiplier_cycle_desc": "Pressing a build hotkey repeatedly cycles the build multiplier (x1 → x5 → x10...)",
     "build_multiplier_cycle_label": "Cycle Build Multiplier on Hotkey",
     "build_port": "Build Port",
+    "build_radar": "Build Radar Station",
     "build_sam_launcher": "Build SAM Launcher",
     "build_scroll_modifier": "Build Scroll Modifier",
     "build_scroll_modifier_desc": "Hold this key and scroll to change build amount.",

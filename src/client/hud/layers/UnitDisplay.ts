@@ -38,6 +38,7 @@ import {
   goldCoinIcon,
   goldMineIcon,
   hydrogenBombIcon,
+  radarIcon,
   mirvIcon,
   missileSiloIcon,
   portIcon,
@@ -73,6 +74,7 @@ export class UnitDisplay extends LitElement implements Controller {
   private _fighters = 0;
   private _bombers = 0;
   private _carriers = 0;
+  private _radars = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -617,6 +619,7 @@ export class UnitDisplay extends LitElement implements Controller {
     this._fighters = player.units(UnitType.Fighter).length;
     this._bombers = player.units(UnitType.Bomber).length;
     this._carriers = player.units(UnitType.AircraftCarrier).length;
+    this._radars = player.totalUnitLevels(UnitType.Radar);
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -772,6 +775,13 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.AircraftCarrier,
               "aircraft_carrier",
               this.getHotkey("buildCarrier", "Shift+Digit6"),
+            )}
+            ${this.renderUnitItem(
+              radarIcon,
+              this._radars,
+              UnitType.Radar,
+              "radar",
+              this.getHotkey("buildRadar", "Shift+Digit7"),
             )}
           </div>
         </div>
