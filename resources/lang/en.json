@@ -205,6 +205,7 @@
   },
   "build_menu": {
     "desc": {
+      "airport": "Sends cargo planes to trade partners' airports, no coast needed",
       "atom_bomb": "Small explosion",
       "city": "Increases max population",
       "defense_post": "Increases defenses of nearby borders",
@@ -3271,8 +3272,10 @@
     "title": "Tutorial"
   },
   "unit_type": {
+    "airport": "Airport",
     "atom_bomb": "Atom Bomb",
     "boat": "Boat",
+    "cargo_plane": "Cargo Plane",
     "city": "City",
     "defense_post": "Defense Post",
     "factory": "Factory",
@@ -3331,6 +3334,7 @@
     "box_select_warships_desc": "Hold this key and drag to select multiple warships.",
     "break_alliance": "Break Alliance (Betray)",
     "break_alliance_desc": "Break alliance with the player whose tile is under your cursor.",
+    "build_airport": "Build Airport",
     "build_atom_bomb": "Build Atom Bomb",
     "build_city": "Build City",
     "build_controls": "Build Controls",

@@ -70,6 +70,11 @@ function getStructureRatios(
       ratioPerCity: 0.75,
       perceivedCostIncreasePerOwned: 1,
     },
+    // Mod: nations build airports too, so cargo planes have somewhere to fly.
+    [UnitType.Airport]: {
+      ratioPerCity: 0.35,
+      perceivedCostIncreasePerOwned: 1,
+    },
     [UnitType.SAMLauncher]: {
       ratioPerCity: SAM_RATIO_BY_DIFFICULTY[difficulty],
       perceivedCostIncreasePerOwned: 0.3,
@@ -653,6 +658,7 @@ export class NationStructureBehavior {
     const buildOrder: UnitType[] = [
       UnitType.Port,
       UnitType.Factory,
+      UnitType.Airport,
       UnitType.SAMLauncher,
       UnitType.MissileSilo,
     ];
@@ -870,7 +876,8 @@ export class NationStructureBehavior {
     if (
       type === UnitType.City ||
       type === UnitType.Port ||
-      type === UnitType.Factory
+      type === UnitType.Factory ||
+      type === UnitType.Airport
     ) {
       increasePerOwned *= INCOME_STRUCTURE_SAVING_WEIGHT[difficulty];
     }

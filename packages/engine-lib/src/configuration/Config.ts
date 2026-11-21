@@ -240,6 +240,12 @@ export class Config {
           upgradable: true,
         };
         break;
+      case UnitType.Airport:
+        info = {
+          constructionDuration: this.instantBuild() ? 0 : 5 * 10,
+          upgradable: true,
+        };
+        break;
       case UnitType.City:
       case UnitType.Factory:
         info = {
@@ -255,6 +261,7 @@ export class Config {
       case UnitType.MIRVWarhead:
       case UnitType.TradeShip:
       case UnitType.Train:
+      case UnitType.CargoPlane:
         info = {};
         break;
       default:

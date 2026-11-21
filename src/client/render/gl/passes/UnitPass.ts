@@ -36,9 +36,11 @@ import type { Config } from "@openfront/engine-lib/configuration/Config";
 import { assetUrl } from "@openfront/shared/AssetUrls";
 import type { RendererConfig, UnitState } from "../../types";
 import {
+  AIRCRAFT_TYPES,
   SMOOTHED_NUKE_TYPES,
   TrainType,
   UT_ATOM_BOMB,
+  UT_CARGO_PLANE,
   UT_HYDROGEN_BOMB,
   UT_MIRV,
   UT_MIRV_WARHEAD,
@@ -85,6 +87,8 @@ const UNIT_ORDER = [
   "TrainEngine",
   "TrainCarriage",
   "TrainCarriageLoaded",
+  // Mod: aircraft (appended after the trains, see the train range in unit.frag.glsl)
+  UT_CARGO_PLANE,
 ] as const;
 
 const ATLAS_COLS = UNIT_ORDER.length;
@@ -147,6 +151,7 @@ const MISSILE_TYPES: ReadonlySet<string> = new Set([
   UT_SAM_MISSILE,
   UT_SHELL,
   UT_MIRV_WARHEAD,
+  UT_CARGO_PLANE,
 ]);
 
 /** Values per smoothing segment in the flat `smoothSegs` array:
@@ -526,7 +531,8 @@ export class UnitPass {
 
       if (isMissile) {
         if (
-          SMOOTHED_NUKE_TYPES.has(unit.unitType) &&
+          (SMOOTHED_NUKE_TYPES.has(unit.unitType) ||
+            AIRCRAFT_TYPES.has(unit.unitType)) &&
           unit.lastPos !== unit.pos
         ) {
           const lx = unit.lastPos % this.mapW;
