@@ -317,7 +317,8 @@ export class LangSelector extends LitElement {
       "clan-map-view",
     ];
 
-    document.title = this.translateText("main.title") ?? document.title;
+    // Mod: the title stays "SkyFront (based on OpenFront)" in every language
+    // (AGPL section 7 terms: a modified version must not be titled OpenFront).
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n");

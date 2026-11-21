@@ -41,7 +41,8 @@ describe("LangSelector applyTranslation", () => {
       document.querySelector('[data-i18n="test.bogus"]')!.textContent,
     ).toBe("untouched");
     expect(warn).toHaveBeenCalledWith("Translation key not found: test.bogus");
-    expect(document.title).toBe("OpenFront");
+    // Mod: translations no longer rename the page; it stays SkyFront.
+    expect(document.title).not.toBe("OpenFront");
   });
 });
 
