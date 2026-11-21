@@ -9,6 +9,7 @@ export const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 export const radarIcon = assetUrl("images/RadarIconWhite.svg");
 export const spyPlaneIcon = assetUrl("images/SpyPlaneIconWhite.svg");
 export const paratroopersIcon = assetUrl("images/ParatroopersIconWhite.svg");
+export const submarineIcon = assetUrl("images/SubmarineIconWhite.svg");
 export const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 export const cityIcon = assetUrl("images/CityIconWhite.svg");
 export const factoryIcon = assetUrl("images/FactoryIconWhite.svg");

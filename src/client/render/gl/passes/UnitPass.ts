@@ -51,6 +51,7 @@ import {
   UT_MIRV_WARHEAD,
   UT_SAM_MISSILE,
   UT_SHELL,
+  UT_SUBMARINE,
   UT_TRADE_SHIP,
   UT_TRAIN,
   UT_TRANSPORT,
@@ -99,6 +100,7 @@ const UNIT_ORDER = [
   UT_CARRIER,
   UT_SPY_PLANE,
   UT_PARATROOPERS,
+  UT_SUBMARINE,
 ] as const;
 
 const ATLAS_COLS = UNIT_ORDER.length;
@@ -476,6 +478,16 @@ export class UnitPass {
 
     for (const unit of units.values()) {
       if (!unit.isActive || unit.waitTicks > 0) continue;
+      // Mod: other players' submarines stay hidden while submerged; one
+      // shows itself (has a target) for a while after it fires.
+      if (
+        unit.unitType === UT_SUBMARINE &&
+        unit.targetUnitId === null &&
+        unit.ownerID !== this.localPlayerID &&
+        !this.friendlyOwners.has(unit.ownerID)
+      ) {
+        continue;
+      }
 
       let atlasIdx = this.typeToAtlasCol.get(unit.unitType);
 

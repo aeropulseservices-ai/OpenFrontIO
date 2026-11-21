@@ -290,6 +290,9 @@ export class Config {
       case UnitType.Paratroopers:
         info = { maxHealth: 300 };
         break;
+      case UnitType.Submarine:
+        info = { maxHealth: 800 };
+        break;
       case UnitType.AircraftCarrier:
         info = { maxHealth: 2000 };
         break;

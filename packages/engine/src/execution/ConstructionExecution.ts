@@ -30,6 +30,7 @@ import { PortExecution } from "./PortExecution";
 import { RadarExecution } from "./RadarExecution";
 import { SAMLauncherExecution } from "./SAMLauncherExecution";
 import { SpyPlaneExecution } from "./SpyPlaneExecution";
+import { SubmarineExecution } from "./SubmarineExecution";
 import { WarshipExecution } from "./WarshipExecution";
 
 /**
@@ -197,6 +198,9 @@ export class ConstructionExecution implements Execution {
         break;
       case UnitType.AircraftCarrier:
         this.mg.addExecution(new CarrierExecution(player, this.tile));
+        break;
+      case UnitType.Submarine:
+        this.mg.addExecution(new SubmarineExecution(player, this.tile));
         break;
       case UnitType.Port:
       case UnitType.MissileSilo:

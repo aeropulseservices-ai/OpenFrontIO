@@ -28,7 +28,7 @@ export class MoveWarshipExecution implements Execution {
     const warshipMap = new Map(
       // Mod: aircraft carriers move the same way.
       this.owner
-        .units(UnitType.Warship, UnitType.AircraftCarrier)
+        .units(UnitType.Warship, UnitType.AircraftCarrier, UnitType.Submarine)
         .map((u) => [u.id(), u]),
     );
     // Deduplicate ids so each warship is only moved once

@@ -484,6 +484,22 @@ function playIntent(game: Game, p: Player, rand: PseudoRandom): Intent | null {
       return { ...warshipIntent, unit: UnitType.AircraftCarrier };
     }
   }
+  // Mod: submarines launch from ports too.
+  if (
+    p.units(UnitType.Warship).length > 0 &&
+    p.units(UnitType.Submarine).length === 0 &&
+    canAfford(game, p, UnitType.Submarine) &&
+    rand.chance(3)
+  ) {
+    const warshipIntent = buildWarshipIntent(game, p, rand);
+    if (
+      warshipIntent !== null &&
+      warshipIntent.type === "build_unit" &&
+      p.canBuild(UnitType.Submarine, warshipIntent.tile) !== false
+    ) {
+      return { ...warshipIntent, unit: UnitType.Submarine };
+    }
+  }
   const others = game.players().filter((o) => o !== p && o.isPlayer());
   const other = pick(rand, others);
   // Mod: air force. Send a fighter or a bomber at a random enemy tile.

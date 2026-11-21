@@ -41,6 +41,7 @@ import {
   radarIcon,
   spyPlaneIcon,
   paratroopersIcon,
+  submarineIcon,
   mirvIcon,
   missileSiloIcon,
   portIcon,
@@ -79,6 +80,7 @@ export class UnitDisplay extends LitElement implements Controller {
   private _radars = 0;
   private _spyPlanes = 0;
   private _paratroopers = 0;
+  private _submarines = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -580,6 +582,7 @@ export class UnitDisplay extends LitElement implements Controller {
         );
       case UnitType.Warship:
       case UnitType.AircraftCarrier:
+      case UnitType.Submarine:
         return (
           this.cost(item) <= (player?.gold() ?? 0n) &&
           (player?.units(UnitType.Port).length ?? 0) > 0
@@ -628,6 +631,7 @@ export class UnitDisplay extends LitElement implements Controller {
     this._radars = player.totalUnitLevels(UnitType.Radar);
     this._spyPlanes = player.units(UnitType.SpyPlane).length;
     this._paratroopers = player.units(UnitType.Paratroopers).length;
+    this._submarines = player.units(UnitType.Submarine).length;
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -804,6 +808,13 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.Paratroopers,
               "paratroopers",
               this.getHotkey("buildParatroopers", "Shift+Digit9"),
+            )}
+            ${this.renderUnitItem(
+              submarineIcon,
+              this._submarines,
+              UnitType.Submarine,
+              "submarine",
+              this.getHotkey("buildSubmarine", "Shift+Digit0"),
             )}
           </div>
         </div>
