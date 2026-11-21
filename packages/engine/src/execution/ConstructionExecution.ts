@@ -15,6 +15,7 @@ import type {
   SnapshotWriter,
 } from "../snapshot/SnapshotContext";
 import { AirportExecution } from "./AirportExecution";
+import { BarracksExecution } from "./BarracksExecution";
 import { BomberExecution } from "./BomberExecution";
 import { CarrierExecution } from "./CarrierExecution";
 import { CityExecution } from "./CityExecution";
@@ -59,6 +60,8 @@ export function structureExecution(structure: Unit): Execution {
       return new PassiveIncomeExecution(structure);
     case UnitType.Radar:
       return new RadarExecution(structure);
+    case UnitType.Barracks:
+      return new BarracksExecution(structure);
     default:
       throw new Error(`${structure.type()} is not a structure`);
   }
@@ -212,6 +215,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.Bank:
       case UnitType.GoldMine:
       case UnitType.Radar:
+      case UnitType.Barracks:
         this.mg.addExecution(structureExecution(this.structure!));
         break;
       default:
@@ -234,6 +238,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.Bank:
       case UnitType.GoldMine:
       case UnitType.Radar:
+      case UnitType.Barracks:
         return true;
       default:
         return false;

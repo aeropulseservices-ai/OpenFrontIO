@@ -252,6 +252,7 @@ export class Config {
       case UnitType.Bank:
       case UnitType.GoldMine:
       case UnitType.Radar:
+      case UnitType.Barracks:
         info = {
           constructionDuration: this.instantBuild() ? 0 : 5 * 10,
           upgradable: true,
@@ -421,6 +422,14 @@ export class Config {
     }
   }
 
+  /**
+   * Mod: percent extra troop growth from this many barracks levels
+   * (10% each, at most 100%).
+   */
+  barracksGrowthBonus(levels: number): number {
+    return Math.min(100, levels * 10);
+  }
+
   troopIncreaseRate(player: PlayerLike): number {
     const max = this.maxTroops(player);
 
@@ -431,6 +440,15 @@ export class Config {
 
     if (player.type() === PlayerType.Bot) {
       toAdd *= 0.5;
+    }
+
+    // Mod: each finished barracks level speeds up troop growth.
+    const barracksLevels = player
+      .units(UnitType.Barracks)
+      .filter((u) => !u.isUnderConstruction())
+      .reduce((sum, u) => sum + u.level(), 0);
+    if (barracksLevels > 0) {
+      toAdd *= 1 + this.barracksGrowthBonus(barracksLevels) / 100;
     }
 
     if (player.type() === PlayerType.Nation) {

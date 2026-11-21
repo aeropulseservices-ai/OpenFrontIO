@@ -277,6 +277,7 @@ const STRUCTURES = [
   UnitType.Bank,
   UnitType.GoldMine,
   UnitType.Radar,
+  UnitType.Barracks,
 ] as const;
 
 function nearbyWater(

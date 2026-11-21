@@ -29,6 +29,7 @@ import {
   airportIcon,
   atomBombIcon,
   bankIcon,
+  barracksIcon,
   bomberIcon,
   carrierIcon,
   cityIcon,
@@ -81,6 +82,7 @@ export class UnitDisplay extends LitElement implements Controller {
   private _spyPlanes = 0;
   private _paratroopers = 0;
   private _submarines = 0;
+  private _barracks = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -632,6 +634,7 @@ export class UnitDisplay extends LitElement implements Controller {
     this._spyPlanes = player.units(UnitType.SpyPlane).length;
     this._paratroopers = player.units(UnitType.Paratroopers).length;
     this._submarines = player.units(UnitType.Submarine).length;
+    this._barracks = player.totalUnitLevels(UnitType.Barracks);
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -815,6 +818,13 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.Submarine,
               "submarine",
               this.getHotkey("buildSubmarine", "Shift+Digit0"),
+            )}
+            ${this.renderUnitItem(
+              barracksIcon,
+              this._barracks,
+              UnitType.Barracks,
+              "barracks",
+              this.getHotkey("buildBarracks", "Shift+KeyZ"),
             )}
           </div>
         </div>
