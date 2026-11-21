@@ -35,6 +35,7 @@ const paratroopersIcon = assetUrl("images/ParatroopersIconWhite.svg");
 const submarineIcon = assetUrl("images/SubmarineIconWhite.svg");
 const bankIcon = assetUrl("images/BankIconWhite.svg");
 const radarIcon = assetUrl("images/RadarIconWhite.svg");
+const barracksIcon = assetUrl("images/BarracksIconWhite.svg");
 const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
@@ -196,6 +197,13 @@ const buildTable: BuildItemDisplay[][] = [
       icon: radarIcon,
       description: "build_menu.desc.radar",
       key: "unit_type.radar",
+      countable: true,
+    },
+    {
+      unitType: UnitType.Barracks,
+      icon: barracksIcon,
+      description: "build_menu.desc.barracks",
+      key: "unit_type.barracks",
       countable: true,
     },
   ],

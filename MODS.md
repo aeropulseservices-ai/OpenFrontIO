@@ -113,6 +113,12 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   each hostile warship, carrier, transport ship, fighter or bomber in range.
   With fog of war on, it also lets you see its whole range.
 
+### Barracks
+
+- **Barracks**: 200k (doubling per barracks, max 1M), hotkey `Shift+Z`.
+  Build it on your own land. Each barracks level adds 10% to your troop
+  growth, up to +100% in total. Upgrade it or build more to stack the bonus.
+
 ### Fog of war
 
 Turn on **Fog of War** in the game settings (single player or a private

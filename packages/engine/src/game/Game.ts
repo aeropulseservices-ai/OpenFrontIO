@@ -126,6 +126,8 @@ export interface UnitParamsMap {
     patrolTile: TileRef;
   };
 
+  [UnitType.Barracks]: Record<string, never>;
+
   [UnitType.Fighter]: Record<string, never>;
 
   [UnitType.Bomber]: Record<string, never>;
