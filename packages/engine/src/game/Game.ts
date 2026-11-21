@@ -108,6 +108,12 @@ export interface UnitParamsMap {
 
   [UnitType.Factory]: Record<string, never>;
 
+  [UnitType.Airport]: Record<string, never>;
+
+  [UnitType.CargoPlane]: {
+    targetUnit: Unit;
+  };
+
   [UnitType.MissileSilo]: Record<string, never>;
 
   [UnitType.DefensePost]: Record<string, never>;

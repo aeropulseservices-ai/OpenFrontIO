@@ -151,6 +151,10 @@
       "Missile Silo": {
         "scale": 1.55,
         "iconFill": 0.85
+      },
+      "Airport": {
+        "scale": 1.4,
+        "iconFill": 1
       }
     },
     "highlightOutlineWidth": 0.04,
@@ -386,6 +390,14 @@
     "Missile Silo": {
       "radius": 18,
       "intensity": 1.2
+    },
+    "Airport": {
+      "radius": 18,
+      "intensity": 1.2
+    },
+    "Cargo Plane": {
+      "radius": 5,
+      "intensity": 2.0
     },
     "Transport": {
       "radius": 6,

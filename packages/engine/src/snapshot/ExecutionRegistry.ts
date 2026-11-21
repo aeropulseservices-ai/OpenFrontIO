@@ -1,10 +1,12 @@
 // Every entry is `<ClassName>Snapshot`, exported next to its class.
+import { AirportExecutionSnapshot } from "../execution/AirportExecution";
 import { AllianceExtensionExecutionSnapshot } from "../execution/alliance/AllianceExtensionExecution";
 import { AllianceRejectExecutionSnapshot } from "../execution/alliance/AllianceRejectExecution";
 import { AllianceRequestExecutionSnapshot } from "../execution/alliance/AllianceRequestExecution";
 import { BreakAllianceExecutionSnapshot } from "../execution/alliance/BreakAllianceExecution";
 import { AttackExecutionSnapshot } from "../execution/AttackExecution";
 import { BoatRetreatExecutionSnapshot } from "../execution/BoatRetreatExecution";
+import { CargoPlaneExecutionSnapshot } from "../execution/CargoPlaneExecution";
 import { CityExecutionSnapshot } from "../execution/CityExecution";
 import { ConstructionExecutionSnapshot } from "../execution/ConstructionExecution";
 import { DefensePostExecutionSnapshot } from "../execution/DefensePostExecution";
@@ -70,6 +72,8 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   EmbargoExecutionSnapshot,
   EmojiExecutionSnapshot,
   FactoryExecutionSnapshot,
+  AirportExecutionSnapshot,
+  CargoPlaneExecutionSnapshot,
   MarkDisconnectedExecutionSnapshot,
   MirvExecutionSnapshot,
   MissileSiloExecutionSnapshot,

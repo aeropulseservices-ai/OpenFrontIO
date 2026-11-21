@@ -337,6 +337,12 @@ function buildStructureIntent(
     rand.chance(2)
   ) {
     unit = UnitType.SAMLauncher;
+  } else if (
+    p.units(UnitType.Airport).length === 0 &&
+    canAfford(game, p, UnitType.Airport) &&
+    rand.chance(2)
+  ) {
+    unit = UnitType.Airport;
   } else {
     const affordable = STRUCTURES.filter((t) => canAfford(game, p, t));
     const picked = pick(rand, affordable);

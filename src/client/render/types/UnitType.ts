@@ -21,6 +21,8 @@ export const UT_SAM_MISSILE = "SAMMissile" as const;
 export const UT_SHELL = "Shell" as const;
 export const UT_MIRV_WARHEAD = "MIRV Warhead" as const;
 export const UT_TRAIN = "Train" as const;
+// Mod: aircraft
+export const UT_CARGO_PLANE = "Cargo Plane" as const;
 
 // Structures
 export const UT_CITY = "City" as const;
@@ -29,6 +31,8 @@ export const UT_FACTORY = "Factory" as const;
 export const UT_DEFENSE_POST = "Defense Post" as const;
 export const UT_SAM_LAUNCHER = "SAM Launcher" as const;
 export const UT_MISSILE_SILO = "Missile Silo" as const;
+// Mod structures
+export const UT_AIRPORT = "Airport" as const;
 
 // ---------------------------------------------------------------------------
 // Derived sets
@@ -41,6 +45,7 @@ export const STRUCTURE_TYPES: ReadonlySet<string> = new Set([
   UT_DEFENSE_POST,
   UT_SAM_LAUNCHER,
   UT_MISSILE_SILO,
+  UT_AIRPORT,
 ]);
 
 export const NUKE_TYPES: ReadonlySet<string> = new Set([
@@ -58,6 +63,9 @@ export const SMOOTHED_NUKE_TYPES: ReadonlySet<string> = new Set([
   UT_MIRV,
   UT_MIRV_WARHEAD,
 ]);
+
+/** Mod: aircraft. Rendered above structures, position smoothed per frame. */
+export const AIRCRAFT_TYPES: ReadonlySet<string> = new Set([UT_CARGO_PLANE]);
 
 /** Units that leave a trail on the map (TrailManager). */
 export const TRAIL_TYPES: ReadonlySet<string> = new Set([
@@ -99,4 +107,6 @@ export const ALL_UNIT_TYPES = [
   UT_SAM_LAUNCHER,
   UT_MISSILE_SILO,
   UT_TRAIN,
+  UT_AIRPORT,
+  UT_CARGO_PLANE,
 ] as const;

@@ -117,6 +117,8 @@ export class NationStructurePlacement {
         return this.cityValue();
       case UnitType.MissileSilo:
         return this.missileSiloValue();
+      case UnitType.Airport:
+        return this.missileSiloValue(UnitType.Airport);
       case UnitType.Factory:
         return this.factoryValue();
       case UnitType.Port:
@@ -132,10 +134,12 @@ export class NationStructurePlacement {
    * Value function for MissileSilo.
    * Prefers high elevation, distance from border, and spacing from same-type structures.
    */
-  private missileSiloValue(): (tile: TileRef) => number {
+  private missileSiloValue(
+    type: UnitType = UnitType.MissileSilo,
+  ): (tile: TileRef) => number {
     const game = this.game;
     const borderTiles = this.player.borderTiles();
-    const otherUnits = this.player.units(UnitType.MissileSilo);
+    const otherUnits = this.player.units(type);
     const { borderSpacing, structureSpacing } = this.spacingConstants();
 
     return (tile) => {

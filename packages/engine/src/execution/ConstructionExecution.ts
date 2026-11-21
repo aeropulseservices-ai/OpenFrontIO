@@ -14,6 +14,7 @@ import type {
   SnapshotReader,
   SnapshotWriter,
 } from "../snapshot/SnapshotContext";
+import { AirportExecution } from "./AirportExecution";
 import { CityExecution } from "./CityExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
@@ -43,6 +44,8 @@ export function structureExecution(structure: Unit): Execution {
       return new CityExecution(structure);
     case UnitType.Factory:
       return new FactoryExecution(structure);
+    case UnitType.Airport:
+      return new AirportExecution(structure);
     default:
       throw new Error(`${structure.type()} is not a structure`);
   }
@@ -174,6 +177,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.SAMLauncher:
       case UnitType.City:
       case UnitType.Factory:
+      case UnitType.Airport:
         this.mg.addExecution(structureExecution(this.structure!));
         break;
       default:
@@ -192,6 +196,7 @@ export class ConstructionExecution implements Execution {
       case UnitType.SAMLauncher:
       case UnitType.City:
       case UnitType.Factory:
+      case UnitType.Airport:
         return true;
       default:
         return false;

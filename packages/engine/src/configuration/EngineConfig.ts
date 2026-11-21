@@ -273,6 +273,35 @@ export class EngineConfig extends Config {
     return this.trainStationMaxRange() * 1.4142;
   }
 
+  // Mod: air commerce. Cargo planes pay a share of what a trade ship would
+  // for the same distance: they fly straight over land and sea and are faster,
+  // so each trip is worth less.
+  cargoPlaneGold(dist: number, player: PlayerLike): Gold {
+    return (this.tradeShipGold(dist, player) * 3n) / 5n;
+  }
+
+  /** Tiles a cargo plane covers per tick (trade ships move 1). */
+  cargoPlaneSpeed(): number {
+    return 2;
+  }
+
+  // Probability of a cargo plane spawn per airport level = 1 / this.
+  cargoPlaneSpawnRate(
+    rejections: number,
+    numCargoPlanes: number,
+    playerAirportLevels: number,
+  ): number {
+    const rejectionModifier = 1 / (rejections + 1);
+    const boost = this.smallEconomySpawnBoost(playerAirportLevels);
+    const base = 120 / (boost * boost);
+    return Math.max(
+      1,
+      Math.floor(
+        (base * rejectionModifier) / this.tradeShipSaturation(numCargoPlanes),
+      ),
+    );
+  }
+
   tradeShipGold(dist: number, player: PlayerLike): Gold {
     // Sigmoid: concave start, sharp S-curve middle, linear end - heavily punishes trades under range debuff.
     const debuff = this.tradeShipShortRangeDebuff();
@@ -394,12 +423,18 @@ export class EngineConfig extends Config {
           UnitType.Factory,
           UnitType.Port,
         );
+      case UnitType.Airport:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 125_000),
+          UnitType.Airport,
+        );
       case UnitType.TransportShip:
       case UnitType.Shell:
       case UnitType.SAMMissile:
       case UnitType.MIRVWarhead:
       case UnitType.TradeShip:
       case UnitType.Train:
+      case UnitType.CargoPlane:
         return () => 0n;
       default:
         assertNever(type);

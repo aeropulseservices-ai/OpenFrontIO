@@ -1511,6 +1511,16 @@ export class UserSettingModal extends BaseModal {
       ></setting-keybind>
 
       <setting-keybind
+        action="buildAirport"
+        label=${translateText("user_setting.build_airport")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildAirport}
+        .value=${this.getKeyValue("buildAirport")}
+        .display=${this.getKeyChar("buildAirport")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
         action="buildScrollModifier"
         .allowModifiers=${true}
         label=${translateText("user_setting.build_scroll_modifier")}
