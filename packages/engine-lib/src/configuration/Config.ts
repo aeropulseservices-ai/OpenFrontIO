@@ -287,6 +287,9 @@ export class Config {
       case UnitType.SpyPlane:
         info = { maxHealth: 150 };
         break;
+      case UnitType.Paratroopers:
+        info = { maxHealth: 300 };
+        break;
       case UnitType.AircraftCarrier:
         info = { maxHealth: 2000 };
         break;

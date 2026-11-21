@@ -118,6 +118,10 @@ export interface UnitParamsMap {
 
   [UnitType.SpyPlane]: Record<string, never>;
 
+  [UnitType.Paratroopers]: {
+    troops: number;
+  };
+
   [UnitType.Fighter]: Record<string, never>;
 
   [UnitType.Bomber]: Record<string, never>;

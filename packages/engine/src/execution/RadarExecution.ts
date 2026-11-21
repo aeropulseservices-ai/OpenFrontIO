@@ -23,6 +23,7 @@ export const RADAR_CONTACT_TYPES = [
   UnitType.Fighter,
   UnitType.Bomber,
   UnitType.SpyPlane,
+  UnitType.Paratroopers,
 ] as const;
 
 export class RadarExecution implements Execution {

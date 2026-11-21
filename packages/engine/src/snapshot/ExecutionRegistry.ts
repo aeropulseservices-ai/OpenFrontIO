@@ -28,6 +28,7 @@ import { MoveWarshipExecutionSnapshot } from "../execution/MoveWarshipExecution"
 import { NationExecutionSnapshot } from "../execution/NationExecution";
 import { NoOpExecutionSnapshot } from "../execution/NoOpExecution";
 import { NukeExecutionSnapshot } from "../execution/NukeExecution";
+import { ParatrooperExecutionSnapshot } from "../execution/ParatrooperExecution";
 import { PassiveIncomeExecutionSnapshot } from "../execution/PassiveIncomeExecution";
 import { PauseExecutionSnapshot } from "../execution/PauseExecution";
 import { PlayerExecutionSnapshot } from "../execution/PlayerExecution";
@@ -83,6 +84,7 @@ export const EXECUTION_SNAPSHOT_TYPES = [
   PassiveIncomeExecutionSnapshot,
   RadarExecutionSnapshot,
   SpyPlaneExecutionSnapshot,
+  ParatrooperExecutionSnapshot,
   FighterExecutionSnapshot,
   BomberExecutionSnapshot,
   CarrierExecutionSnapshot,

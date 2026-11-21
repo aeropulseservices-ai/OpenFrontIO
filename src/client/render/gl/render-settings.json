@@ -435,6 +435,10 @@
       "radius": 5,
       "intensity": 2.0
     },
+    "Paratroopers": {
+      "radius": 6,
+      "intensity": 2.4
+    },
     "Aircraft Carrier": {
       "radius": 10,
       "intensity": 2.8

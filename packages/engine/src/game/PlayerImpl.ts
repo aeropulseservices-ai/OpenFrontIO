@@ -1655,6 +1655,7 @@ export class PlayerImpl implements Player {
       case UnitType.Fighter:
       case UnitType.Bomber:
       case UnitType.SpyPlane:
+      case UnitType.Paratroopers:
         return this.airStrikeSpawn(targetTile, unitType);
       case UnitType.CargoPlane:
         return this.landBasedUnitSpawn(targetTile);
@@ -1748,6 +1749,14 @@ export class PlayerImpl implements Player {
   // range of the target. Bombers may only target hostile players' land.
   airStrikeSpawn(tile: TileRef, type: UnitType): TileRef | false {
     if (this.mg.inSpawnPhase()) return false;
+    // Paratroopers drop on any land that isn't ours or a friend's.
+    if (type === UnitType.Paratroopers) {
+      if (!this.mg.isLand(tile) || this.mg.isImpassable(tile)) return false;
+      const owner = this.mg.owner(tile);
+      if (owner === this || (owner.isPlayer() && this.isFriendly(owner))) {
+        return false;
+      }
+    }
     // Spy planes likewise only scout rivals.
     if (type === UnitType.Bomber || type === UnitType.SpyPlane) {
       const owner = this.mg.owner(tile);
