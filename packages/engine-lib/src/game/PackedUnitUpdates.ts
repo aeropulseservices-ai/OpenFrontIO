@@ -48,6 +48,8 @@ export const PACKED_UNIT_TYPES: readonly UnitType[] = [
   UnitType.Factory, // 16
   UnitType.Airport, // 17
   UnitType.CargoPlane, // 18
+  UnitType.Bank, // 19
+  UnitType.GoldMine, // 20
 ] as const;
 
 const UNIT_TYPE_TO_INT = new Map<UnitType, number>(

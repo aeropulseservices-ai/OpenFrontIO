@@ -223,6 +223,9 @@ export enum UnitType {
   // Mod: air commerce
   Airport = "Airport",
   CargoPlane = "Cargo Plane",
+  // Mod: extra gold sources
+  Bank = "Bank",
+  GoldMine = "Gold Mine",
 }
 
 export enum TrainType {
@@ -253,6 +256,8 @@ export const Structures = unitTypeGroup([
   UnitType.Port,
   UnitType.Factory,
   UnitType.Airport,
+  UnitType.Bank,
+  UnitType.GoldMine,
 ] as const);
 
 export const BuildMenus = unitTypeGroup([

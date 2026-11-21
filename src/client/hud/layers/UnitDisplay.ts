@@ -28,10 +28,12 @@ import { GameView } from "../../view";
 import {
   airportIcon,
   atomBombIcon,
+  bankIcon,
   cityIcon,
   defensePostIcon,
   factoryIcon,
   goldCoinIcon,
+  goldMineIcon,
   hydrogenBombIcon,
   mirvIcon,
   missileSiloIcon,
@@ -63,6 +65,8 @@ export class UnitDisplay extends LitElement implements Controller {
   private _warships = 0;
   private _factories = 0;
   private _airports = 0;
+  private _banks = 0;
+  private _goldMines = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -595,6 +599,8 @@ export class UnitDisplay extends LitElement implements Controller {
     this._samLauncher = player.totalUnitLevels(UnitType.SAMLauncher);
     this._factories = player.totalUnitLevels(UnitType.Factory);
     this._airports = player.totalUnitLevels(UnitType.Airport);
+    this._banks = player.totalUnitLevels(UnitType.Bank);
+    this._goldMines = player.totalUnitLevels(UnitType.GoldMine);
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -715,6 +721,20 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.Airport,
               "airport",
               this.getHotkey("buildAirport", "Shift+Digit1"),
+            )}
+            ${this.renderUnitItem(
+              bankIcon,
+              this._banks,
+              UnitType.Bank,
+              "bank",
+              this.getHotkey("buildBank", "Shift+Digit2"),
+            )}
+            ${this.renderUnitItem(
+              goldMineIcon,
+              this._goldMines,
+              UnitType.GoldMine,
+              "gold_mine",
+              this.getHotkey("buildGoldMine", "Shift+Digit3"),
             )}
           </div>
         </div>

@@ -302,6 +302,35 @@ export class EngineConfig extends Config {
     );
   }
 
+  // Mod: extra gold sources.
+
+  /** Ticks between bank and gold mine payouts (10 seconds). */
+  passiveIncomeInterval(): number {
+    return 100;
+  }
+
+  /** Gold a gold mine pays every passiveIncomeInterval(). */
+  goldMinePayout(level: number, player: PlayerLike): Gold {
+    return toInt(20_000 * level * this.goldMultiplierFor(player));
+  }
+
+  /**
+   * Interest a bank pays every passiveIncomeInterval(): 0.5% of the gold the
+   * owner holds per bank level, capped at 25k per level, so saving pays off
+   * without snowballing.
+   */
+  bankPayout(level: number, player: PlayerLike): Gold {
+    const interest = (player.gold() * BigInt(5 * level)) / 1000n;
+    const cap = BigInt(25_000 * level);
+    const capped = interest < cap ? interest : cap;
+    return BigInt(Math.floor(Number(capped) * this.goldMultiplierFor(player)));
+  }
+
+  /** Extra gold per tick for each finished city level (city taxes). */
+  cityTaxPerLevel(): number {
+    return 10;
+  }
+
   tradeShipGold(dist: number, player: PlayerLike): Gold {
     // Sigmoid: concave start, sharp S-curve middle, linear end - heavily punishes trades under range debuff.
     const debuff = this.tradeShipShortRangeDebuff();
@@ -427,6 +456,16 @@ export class EngineConfig extends Config {
         return this.costWrapper(
           (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 125_000),
           UnitType.Airport,
+        );
+      case UnitType.Bank:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(2_000_000, pow2(numUnits) * 250_000),
+          UnitType.Bank,
+        );
+      case UnitType.GoldMine:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(1_000_000, pow2(numUnits) * 150_000),
+          UnitType.GoldMine,
         );
       case UnitType.TransportShip:
       case UnitType.Shell:
@@ -715,6 +754,12 @@ export class EngineConfig extends Config {
     } else {
       baseRate = 100n;
     }
+    // Mod: city taxes.
+    let cityLevels = 0;
+    for (const city of player.units(UnitType.City)) {
+      if (!city.isUnderConstruction()) cityLevels += city.level();
+    }
+    baseRate += BigInt(cityLevels * this.cityTaxPerLevel());
     return BigInt(Math.floor(Number(baseRate) * multiplier));
   }
 

@@ -1521,6 +1521,26 @@ export class UserSettingModal extends BaseModal {
       ></setting-keybind>
 
       <setting-keybind
+        action="buildBank"
+        label=${translateText("user_setting.build_bank")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildBank}
+        .value=${this.getKeyValue("buildBank")}
+        .display=${this.getKeyChar("buildBank")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
+        action="buildGoldMine"
+        label=${translateText("user_setting.build_gold_mine")}
+        description=${translateText("user_setting.build_hotkey_desc")}
+        defaultKey=${this.defaultKeybinds.buildGoldMine}
+        .value=${this.getKeyValue("buildGoldMine")}
+        .display=${this.getKeyChar("buildGoldMine")}
+        @change=${this.handleKeybindChange}
+      ></setting-keybind>
+
+      <setting-keybind
         action="buildScrollModifier"
         .allowModifiers=${true}
         label=${translateText("user_setting.build_scroll_modifier")}

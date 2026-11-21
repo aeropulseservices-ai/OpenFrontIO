@@ -75,6 +75,14 @@ function getStructureRatios(
       ratioPerCity: 0.35,
       perceivedCostIncreasePerOwned: 1,
     },
+    [UnitType.GoldMine]: {
+      ratioPerCity: 0.3,
+      perceivedCostIncreasePerOwned: 1,
+    },
+    [UnitType.Bank]: {
+      ratioPerCity: 0.15,
+      perceivedCostIncreasePerOwned: 1,
+    },
     [UnitType.SAMLauncher]: {
       ratioPerCity: SAM_RATIO_BY_DIFFICULTY[difficulty],
       perceivedCostIncreasePerOwned: 0.3,
@@ -659,6 +667,8 @@ export class NationStructureBehavior {
       UnitType.Port,
       UnitType.Factory,
       UnitType.Airport,
+      UnitType.GoldMine,
+      UnitType.Bank,
       UnitType.SAMLauncher,
       UnitType.MissileSilo,
     ];
@@ -877,7 +887,9 @@ export class NationStructureBehavior {
       type === UnitType.City ||
       type === UnitType.Port ||
       type === UnitType.Factory ||
-      type === UnitType.Airport
+      type === UnitType.Airport ||
+      type === UnitType.Bank ||
+      type === UnitType.GoldMine
     ) {
       increasePerOwned *= INCOME_STRUCTURE_SAVING_WEIGHT[difficulty];
     }

@@ -8,6 +8,7 @@ unit settings like any other unit.
 ## Features
 
 ### Airports and air cargo
+
 - **Airport** — land structure, built anywhere in your territory (no coast
   needed). Upgradable. Costs 125k, doubling per airport, capped at 1M.
   Hotkey: `Shift+1`.
