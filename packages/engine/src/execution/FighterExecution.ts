@@ -24,6 +24,7 @@ const AIRCRAFT_TARGETS = [
   UnitType.Fighter,
   UnitType.CargoPlane,
   UnitType.SpyPlane,
+  UnitType.Paratroopers,
 ] as const;
 const ORBIT_RADIUS = 8;
 

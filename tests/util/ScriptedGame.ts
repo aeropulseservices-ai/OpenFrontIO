@@ -492,11 +492,13 @@ function playIntent(game: Game, p: Player, rand: PseudoRandom): Intent | null {
     other !== null &&
     rand.chance(4)
   ) {
-    const unit = rand.chance(3)
-      ? UnitType.SpyPlane
-      : rand.chance(2)
-        ? UnitType.Bomber
-        : UnitType.Fighter;
+    const unit = rand.chance(4)
+      ? UnitType.Paratroopers
+      : rand.chance(3)
+        ? UnitType.SpyPlane
+        : rand.chance(2)
+          ? UnitType.Bomber
+          : UnitType.Fighter;
     const tile = pick(rand, [...other.borderTiles()]);
     if (
       tile !== null &&

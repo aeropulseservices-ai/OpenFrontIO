@@ -24,6 +24,7 @@ import { FighterExecution } from "./FighterExecution";
 import { MirvExecution } from "./MIRVExecution";
 import { MissileSiloExecution } from "./MissileSiloExecution";
 import { NukeExecution } from "./NukeExecution";
+import { ParatrooperExecution } from "./ParatrooperExecution";
 import { PassiveIncomeExecution } from "./PassiveIncomeExecution";
 import { PortExecution } from "./PortExecution";
 import { RadarExecution } from "./RadarExecution";
@@ -190,6 +191,9 @@ export class ConstructionExecution implements Execution {
         break;
       case UnitType.SpyPlane:
         this.mg.addExecution(new SpyPlaneExecution(player, this.tile));
+        break;
+      case UnitType.Paratroopers:
+        this.mg.addExecution(new ParatrooperExecution(player, this.tile));
         break;
       case UnitType.AircraftCarrier:
         this.mg.addExecution(new CarrierExecution(player, this.tile));

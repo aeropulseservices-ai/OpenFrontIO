@@ -344,6 +344,9 @@ export class EngineConfig extends Config {
   samBomberShootDownOdds(): number {
     return 12;
   }
+  paratrooperSpeed(): number {
+    return 2;
+  }
   spyPlaneSpeed(): number {
     return 3;
   }
@@ -534,6 +537,11 @@ export class EngineConfig extends Config {
         return this.costWrapper(
           (numUnits: number) => Math.min(800_000, 400_000 + numUnits * 100_000),
           UnitType.Fighter,
+        );
+      case UnitType.Paratroopers:
+        return this.costWrapper(
+          (numUnits: number) => Math.min(600_000, 300_000 + numUnits * 100_000),
+          UnitType.Paratroopers,
         );
       case UnitType.SpyPlane:
         return this.costWrapper(

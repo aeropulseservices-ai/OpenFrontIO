@@ -234,6 +234,8 @@ export enum UnitType {
   Radar = "Radar Station",
   // Mod: reconnaissance
   SpyPlane = "Spy Plane",
+  // Mod: airborne troops
+  Paratroopers = "Paratroopers",
 }
 
 export enum TrainType {
@@ -258,6 +260,7 @@ export const BuildableAttacks = unitTypeGroup([
   UnitType.Bomber,
   UnitType.AircraftCarrier,
   UnitType.SpyPlane,
+  UnitType.Paratroopers,
 ] as const);
 
 export const Structures = unitTypeGroup([

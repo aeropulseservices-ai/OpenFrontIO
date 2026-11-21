@@ -40,6 +40,7 @@ import {
   hydrogenBombIcon,
   radarIcon,
   spyPlaneIcon,
+  paratroopersIcon,
   mirvIcon,
   missileSiloIcon,
   portIcon,
@@ -77,6 +78,7 @@ export class UnitDisplay extends LitElement implements Controller {
   private _carriers = 0;
   private _radars = 0;
   private _spyPlanes = 0;
+  private _paratroopers = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -585,6 +587,7 @@ export class UnitDisplay extends LitElement implements Controller {
       case UnitType.Fighter:
       case UnitType.Bomber:
       case UnitType.SpyPlane:
+      case UnitType.Paratroopers:
         return (
           this.cost(item) <= (player?.gold() ?? 0n) &&
           (player?.units(UnitType.Airport).length ?? 0) > 0
@@ -624,6 +627,7 @@ export class UnitDisplay extends LitElement implements Controller {
     this._carriers = player.units(UnitType.AircraftCarrier).length;
     this._radars = player.totalUnitLevels(UnitType.Radar);
     this._spyPlanes = player.units(UnitType.SpyPlane).length;
+    this._paratroopers = player.units(UnitType.Paratroopers).length;
     this._warships = player.totalUnitLevels(UnitType.Warship);
     this.requestUpdate();
   }
@@ -793,6 +797,13 @@ export class UnitDisplay extends LitElement implements Controller {
               UnitType.SpyPlane,
               "spy_plane",
               this.getHotkey("buildSpyPlane", "Shift+Digit8"),
+            )}
+            ${this.renderUnitItem(
+              paratroopersIcon,
+              this._paratroopers,
+              UnitType.Paratroopers,
+              "paratroopers",
+              this.getHotkey("buildParatroopers", "Shift+Digit9"),
             )}
           </div>
         </div>

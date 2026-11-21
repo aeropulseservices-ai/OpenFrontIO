@@ -84,6 +84,16 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   of war on, it sees 45 tiles around itself). Enemy fighters can shoot it
   down, and so can SAMs, though less often than bombers.
 
+### Paratroopers
+
+- **Paratroopers**: 300k (+100k per plane in the air, max 600k), hotkey
+  `Shift+9`. Click any land you don't own (an enemy's or unclaimed) within
+  350 tiles of one of your airports or carriers. A transport plane takes a
+  fifth of your troops there, even deep inland, and drops them: they take
+  the tile they land on and attack from it, like troops coming off a boat.
+  SAMs and enemy fighters can shoot the plane down, and the troops on board
+  are lost with it.
+
 ### Radar stations
 
 - **Radar Station**: 150k (doubling per station, max 600k), hotkey
