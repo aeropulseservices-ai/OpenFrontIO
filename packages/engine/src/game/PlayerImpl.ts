@@ -1628,6 +1628,7 @@ export class PlayerImpl implements Player {
       case UnitType.MIRVWarhead:
         return targetTile;
       case UnitType.Port:
+      case UnitType.CoastalBattery:
         return this.portSpawn(targetTile, validTiles);
       case UnitType.Warship:
       case UnitType.AircraftCarrier:

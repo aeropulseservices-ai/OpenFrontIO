@@ -119,6 +119,13 @@ This fork follows the upstream licensing exactly (see `LICENSE` and
   Build it on your own land. Each barracks level adds 10% to your troop
   growth, up to +100% in total. Upgrade it or build more to stack the bonus.
 
+### Coastal batteries
+
+- **Coastal Battery**: 250k (doubling per battery, max 1M), hotkey
+  `Shift+V`. Build it on your own coastline. Every 3 seconds it shells the
+  nearest hostile warship, carrier or transport ship within 25 tiles (+5 per
+  level). Submarines are only targeted while surfaced after firing a torpedo.
+
 ### Fog of war
 
 Turn on **Fog of War** in the game settings (single player or a private

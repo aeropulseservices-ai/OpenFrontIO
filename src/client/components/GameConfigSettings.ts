@@ -133,6 +133,10 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.Paratroopers, translationKey: "unit_type.paratroopers" },
   { type: UnitType.Submarine, translationKey: "unit_type.submarine" },
   { type: UnitType.Barracks, translationKey: "unit_type.barracks" },
+  {
+    type: UnitType.CoastalBattery,
+    translationKey: "unit_type.coastal_battery",
+  },
 ];
 
 const MAP_ICON = svg`<path

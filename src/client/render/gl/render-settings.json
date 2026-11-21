@@ -171,6 +171,10 @@
       "Barracks": {
         "scale": 1.15,
         "iconFill": 0.85
+      },
+      "Coastal Battery": {
+        "scale": 1.15,
+        "iconFill": 0.85
       }
     },
     "highlightOutlineWidth": 0.04,
@@ -424,6 +428,10 @@
       "intensity": 1.2
     },
     "Barracks": {
+      "radius": 18,
+      "intensity": 1.2
+    },
+    "Coastal Battery": {
       "radius": 18,
       "intensity": 1.2
     },

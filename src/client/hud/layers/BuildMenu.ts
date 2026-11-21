@@ -36,6 +36,7 @@ const submarineIcon = assetUrl("images/SubmarineIconWhite.svg");
 const bankIcon = assetUrl("images/BankIconWhite.svg");
 const radarIcon = assetUrl("images/RadarIconWhite.svg");
 const barracksIcon = assetUrl("images/BarracksIconWhite.svg");
+const coastalBatteryIcon = assetUrl("images/CoastalBatteryIconWhite.svg");
 const goldMineIcon = assetUrl("images/GoldMineIconWhite.svg");
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
@@ -204,6 +205,13 @@ const buildTable: BuildItemDisplay[][] = [
       icon: barracksIcon,
       description: "build_menu.desc.barracks",
       key: "unit_type.barracks",
+      countable: true,
+    },
+    {
+      unitType: UnitType.CoastalBattery,
+      icon: coastalBatteryIcon,
+      description: "build_menu.desc.coastal_battery",
+      key: "unit_type.coastal_battery",
       countable: true,
     },
   ],

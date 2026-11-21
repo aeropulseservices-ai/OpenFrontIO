@@ -240,6 +240,8 @@ export enum UnitType {
   Submarine = "Submarine",
   // Mod: land forces
   Barracks = "Barracks",
+  // Mod: coastal defense
+  CoastalBattery = "Coastal Battery",
 }
 
 export enum TrainType {
@@ -280,6 +282,7 @@ export const Structures = unitTypeGroup([
   UnitType.GoldMine,
   UnitType.Radar,
   UnitType.Barracks,
+  UnitType.CoastalBattery,
 ] as const);
 
 export const BuildMenus = unitTypeGroup([

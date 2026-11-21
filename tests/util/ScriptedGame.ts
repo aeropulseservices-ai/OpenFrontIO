@@ -278,6 +278,7 @@ const STRUCTURES = [
   UnitType.GoldMine,
   UnitType.Radar,
   UnitType.Barracks,
+  UnitType.CoastalBattery,
 ] as const;
 
 function nearbyWater(
@@ -347,13 +348,26 @@ function buildStructureIntent(
     rand.chance(2)
   ) {
     unit = UnitType.Airport;
+  } else if (
+    p.units(UnitType.Barracks).length === 0 &&
+    canAfford(game, p, UnitType.Barracks) &&
+    rand.chance(2)
+  ) {
+    unit = UnitType.Barracks;
+  } else if (
+    p.units(UnitType.CoastalBattery).length === 0 &&
+    shores.length > 0 &&
+    canAfford(game, p, UnitType.CoastalBattery) &&
+    rand.chance(2)
+  ) {
+    unit = UnitType.CoastalBattery;
   } else {
     const affordable = STRUCTURES.filter((t) => canAfford(game, p, t));
     const picked = pick(rand, affordable);
     if (picked === null) return null;
     unit = picked;
   }
-  if (unit === UnitType.Port) {
+  if (unit === UnitType.Port || unit === UnitType.CoastalBattery) {
     const tile = pick(rand, shores);
     if (tile === null || p.canBuild(unit, tile) === false) return null;
     return { type: "build_unit", unit, tile };
