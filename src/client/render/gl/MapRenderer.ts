@@ -13,6 +13,7 @@
 
 import type { MapLayer } from "@openfront/engine-api/game/MapFiles";
 import type { Config } from "@openfront/engine-lib/configuration/Config";
+import type { FogGrid } from "../frame/derive/FogOfWar";
 import type { SpiralRibbon } from "../frame/SpiralTrails";
 import type {
   AttackRingInput,
@@ -315,6 +316,11 @@ export class MapRenderer {
   /** Update spawn phase overlay (tile highlights + breathing rings). */
   updateSpawnOverlay(inSpawnPhase: boolean, centers: SpawnCenter[]): void {
     this.renderer?.updateSpawnOverlay(inSpawnPhase, centers);
+  }
+
+  /** Fog of war visibility grid, or null for no fog (SkyFront mod). */
+  updateFog(grid: FogGrid | null): void {
+    this.renderer?.updateFog(grid);
   }
 
   /** Set the small-player glow set (1 byte per owner smallID), or null = off. */

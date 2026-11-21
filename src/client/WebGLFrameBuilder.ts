@@ -1,4 +1,4 @@
-import { PlayerType } from "@openfront/engine-api/game/GameTypes";
+import { PlayerType, UnitType } from "@openfront/engine-api/game/GameTypes";
 import { assetUrl } from "@openfront/shared/AssetUrls";
 import {
   type EffectAttributesFor,
@@ -10,6 +10,12 @@ import {
 } from "@openfront/shared/CosmeticSchemas";
 import { colord } from "colord";
 import { getCachedCosmetics } from "./Cosmetics";
+import {
+  computeFogGrid,
+  createFogGrid,
+  type FogGrid,
+  type FogSighter,
+} from "./render/frame/derive/FogOfWar";
 import { buildTerrainRowSpans } from "./render/frame/derive/TerrainRowSpans";
 import { uploadFrameData } from "./render/frame/Upload";
 // Type-only: a value import would pull GPURenderer and its `.glsl?raw` shader
@@ -109,6 +115,20 @@ export function attributesToExplosionParams(
  *   2. Per-tick upload — pass the FrameData to the renderer's uploadFrameData
  *      helper, which dispatches to all the view.update*() methods.
  */
+/** Ticks between fog of war recomputes (about half a second). */
+const FOG_RESCAN_TICKS = 5;
+
+/** How far (in tiles) each kind of friendly unit sees under fog of war. */
+const FOG_UNIT_SIGHT: ReadonlyMap<UnitType, number> = new Map([
+  [UnitType.Warship, 30],
+  [UnitType.AircraftCarrier, 35],
+  [UnitType.TransportShip, 15],
+  [UnitType.TradeShip, 12],
+  [UnitType.CargoPlane, 15],
+  [UnitType.Fighter, 30],
+  [UnitType.Bomber, 20],
+]);
+
 export class WebGLFrameBuilder {
   private readonly palette: Float32Array;
   // Per-player effect palette, keyed by smallID. Layout is
@@ -265,6 +285,11 @@ export class WebGLFrameBuilder {
 
   private readonly highlightSetBuf = new Uint8Array(PALETTE_SIZE);
   private glowRescanTick = 0;
+  private fogGrid: FogGrid | null = null;
+  private fogScratch = new Uint8Array(0);
+  private readonly fogFriendly = new Uint8Array(PALETTE_SIZE);
+  private fogTick = 0;
+  private fogShown = false;
 
   update(gameView: GameView): void {
     this.syncPlayers(gameView);
@@ -273,6 +298,7 @@ export class WebGLFrameBuilder {
     this.syncLocalPlayer(gameView);
     this.syncSpawnOverlay(gameView);
     this.syncSmallPlayerGlow(gameView);
+    this.syncFog(gameView);
     this.syncTerrainDeltas(gameView);
     this.syncNukeImpacts(gameView);
     this.resolveDeadUnitExplosions(gameView);
@@ -454,6 +480,61 @@ export class WebGLFrameBuilder {
       });
     }
     this.view.updateSpawnOverlay(inSpawnPhase, centers);
+  }
+
+  /**
+   * Fog of war (SkyFront mod, the fogOfWar game setting): recompute what the
+   * local player can see every few ticks and push it to the renderer. No fog
+   * during the spawn phase, for spectators, or once you're dead.
+   */
+  private syncFog(gameView: GameView): void {
+    const me = gameView.myPlayer();
+    const on =
+      gameView.config().gameConfig().fogOfWar === true &&
+      !gameView.inSpawnPhase() &&
+      me !== null &&
+      me.isAlive();
+    if (!on) {
+      if (this.fogShown) {
+        this.view.updateFog(null);
+        this.fogShown = false;
+      }
+      return;
+    }
+    if (this.fogShown && this.fogTick++ % FOG_RESCAN_TICKS !== 0) return;
+    const w = gameView.width();
+    const h = gameView.height();
+    this.fogGrid ??= createFogGrid(w, h);
+    if (this.fogScratch.length < this.fogGrid.cells.length) {
+      this.fogScratch = new Uint8Array(this.fogGrid.cells.length);
+    }
+    const friendly = this.fogFriendly;
+    friendly.fill(0);
+    for (const p of gameView.players()) {
+      if (p === me || me.isFriendly(p)) friendly[p.smallID()] = 1;
+    }
+    const sighters: FogSighter[] = [];
+    for (const u of gameView.units()) {
+      if (!u.isActive() || friendly[u.owner().smallID()] !== 1) continue;
+      const radius = FOG_UNIT_SIGHT.get(u.type());
+      if (radius === undefined) continue;
+      sighters.push({
+        x: gameView.x(u.tile()),
+        y: gameView.y(u.tile()),
+        radius,
+      });
+    }
+    computeFogGrid(
+      this.fogGrid,
+      gameView.frameData().tileState,
+      w,
+      h,
+      friendly,
+      sighters,
+      this.fogScratch,
+    );
+    this.view.updateFog(this.fogGrid);
+    this.fogShown = true;
   }
 
   /**
