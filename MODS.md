@@ -139,6 +139,22 @@ you get close. Your scouting matters: send a fighter or warship to look.
 The fog is drawn by your own game client only, so it's for fun with friends
 rather than a cheat-proof competitive mode.
 
+## Desktop app on Windows
+
+`desktop/windows/` turns your local copy into an installed program:
+
+1. Install [Node.js 24](https://nodejs.org) (the installer tries `winget`
+   for you if it's missing) and clone this repository.
+2. Double-click **`desktop/windows/Install SkyFront.cmd`**. It installs the
+   game's dependencies and adds a **SkyFront** icon to your Desktop and Start
+   menu, plus an entry in Settings > Apps so it can be uninstalled.
+3. Double-click the SkyFront icon. It starts the game server in the
+   background (the first start takes a minute) and opens the game in its own
+   window.
+
+The server keeps running after you close the window, so the next start is
+instant. Use **Stop SkyFront server** in the Start menu to stop it.
+
 ## Running it locally
 
 Requires Node 24 and npm 12 (`npm i -g npm@12`).
